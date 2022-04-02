@@ -21,14 +21,14 @@ public class PlayerController : MonoBehaviour
 
     public void listenInputs()
     {
-        float translate = Input.GetAxis("Vertical") * movespeed;
+        float translate = Input.GetAxis("Vertical") * movespeed * (-1);
         float rot = Input.GetAxis("Horizontal") * rotspeed;
 
         translate *= Time.unscaledDeltaTime;
         rot *= Time.unscaledDeltaTime;
 
-        transform.Translate( 0, 0, translate);
-        transform.Rotate( 0, rot, 0);
+        transform.Translate( translate, 0, 0);
+        transform.Rotate( 0, 0, rot);
 
     }
 }
