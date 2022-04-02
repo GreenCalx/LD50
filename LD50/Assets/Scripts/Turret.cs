@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Turret : Module
 {
-    public float range;
-
     // Start is called before the first frame update
     void Start()
     {
-        range = 2;
+        level = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        BaseUpdate();
         /*Enemy[] enemies = FindObjectsOfType<Enemy>();
         foreach (Enemy enemy in enemies)
         {

@@ -38,6 +38,8 @@ public class GestionUI : MonoBehaviour
             Select(1);
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
             Select(-1);
+        else if (Input.GetKeyDown(KeyCode.B))
+            Build();
     }
 
     private void Select(int direction)
@@ -45,6 +47,16 @@ public class GestionUI : MonoBehaviour
         module_cursors[selection_id].Key.GetComponent<RawImage>().color = basic;
         selection_id = Math.Modulo((selection_id + direction), module_cursors.Count);
         module_cursors[selection_id].Key.GetComponent<RawImage>().color = selected;
-        
+    }
+
+    private void Build()
+    {
+        for (int id = 0; id < module_cursors.Count; id++)
+        {
+            if (id == selection_id)
+                module_cursors[selection_id].Value.Start_build();
+            else
+                module_cursors[id].Value.Interrupt_build();
+        }
     }
 }
