@@ -70,14 +70,14 @@ public class PlayerController : MonoBehaviour
 
     public void Rotate(){
         targetRotation = Quaternion.Euler( 0, angle, 0);
-        transform.rotation = Quaternion.Slerp( transform.rotation, targetRotation, rotspeed * Time.unscaledDeltaTime);
+        transform.rotation = Quaternion.Slerp( transform.rotation, targetRotation, rotspeed * Time.deltaTime);
     }
 
     public void Move(){
         if (groundAngle >= maxGroundAngle)
             return;
 
-        Vector3 nextPos = transform.position + (forward * movespeed * Time.unscaledDeltaTime);
+        Vector3 nextPos = transform.position + (forward * movespeed * Time.deltaTime);
 
         if (!CheckWalls())
             transform.position = nextPos;
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!grounded)
         {
-            transform.position += Physics.gravity * Time.unscaledDeltaTime;
+            transform.position += Physics.gravity * Time.deltaTime;
         }
     }
 
