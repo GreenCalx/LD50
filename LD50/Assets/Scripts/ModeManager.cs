@@ -12,6 +12,7 @@ public class ModeManager : MonoBehaviour
     public Mode mode;
     public Camera main_cam;
     public Camera gestion_cam;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
