@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 6782235078505442158}
   - component: {fileID: 2371595503989272268}
   - component: {fileID: 9017557015542195380}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ROCKET
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 5468119203969554602}
   - component: {fileID: 4159560179770705117}
   - component: {fileID: 7280961748520329607}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: HOUSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
