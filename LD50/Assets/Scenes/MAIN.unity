@@ -280,10 +280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1892798097975162068, guid: fa4a88481d583c243a8c580c1316f4ee, type: 3}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3587243642164266973, guid: fa4a88481d583c243a8c580c1316f4ee, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -331,26 +327,6 @@ PrefabInstance:
     - target: {fileID: 4216393698617498983, guid: fa4a88481d583c243a8c580c1316f4ee, type: 3}
       propertyPath: m_Name
       value: LAND
-      objectReference: {fileID: 0}
-    - target: {fileID: 6847527898002922223, guid: fa4a88481d583c243a8c580c1316f4ee, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6847527898002922223, guid: fa4a88481d583c243a8c580c1316f4ee, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7280961748520329607, guid: fa4a88481d583c243a8c580c1316f4ee, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8237485996504742460, guid: fa4a88481d583c243a8c580c1316f4ee, type: 3}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9017557015542195380, guid: fa4a88481d583c243a8c580c1316f4ee, type: 3}
-      propertyPath: m_Convex
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4a88481d583c243a8c580c1316f4ee, type: 3}

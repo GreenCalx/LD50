@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 1
+  rotspeed: 10
 --- !u!54 &816706027300976936
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -335,6 +336,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -591608442223425049, guid: 615214f5289809e45b866fb419be111e, type: 3}
