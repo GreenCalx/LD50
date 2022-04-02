@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerMissile : MonoBehaviour
 {
-
-    public Transform target;
-    public PlayerWeapon PW;
+    public GameObject explosion;
     public float speed = 10f;
+    [HideInInspector]
+    public Transform target;
+    [HideInInspector]
+    public PlayerWeapon PW;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,7 @@ public class PlayerMissile : MonoBehaviour
 
     private void explode()
     {
+        Instantiate( explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
