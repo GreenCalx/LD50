@@ -62,10 +62,19 @@ public class PlayerWeapon : MonoBehaviour
             // set target on missile
             PlayerMissile pm = new_missile.GetComponentInChildren<PlayerMissile>();
             if (!!pm)
+            {
                 pm.target = e.transform;
+                pm.PW = this;
+            }
             else
                 DestroyImmediate(new_missile);
         }
+    }
+
+    public void notifyDeath(Enemy iE)
+    {
+        if (!locked_enemies.Remove(iE))
+            in_range_enemies.Remove(iE);
     }
 
     

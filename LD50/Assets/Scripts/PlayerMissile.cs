@@ -6,6 +6,7 @@ public class PlayerMissile : MonoBehaviour
 {
 
     public Transform target;
+    public PlayerWeapon PW;
     public float speed = 10f;
 
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class PlayerMissile : MonoBehaviour
         if (e!=null)
         {
             e.Die();
+            PW.notifyDeath(e);
             explode();
         }
     }
