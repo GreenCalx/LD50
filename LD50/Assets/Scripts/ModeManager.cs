@@ -12,11 +12,9 @@ public class ModeManager : MonoBehaviour
     public Mode mode;
     public Camera main_cam;
     public Camera gestion_cam;
-<<<<<<< HEAD
     private GestionUI gestionUI;
-=======
+
     public GameObject player;
->>>>>>> 529f1730665c7722aee240d486d0cc10de3bc5a1
 
     // Start is called before the first frame update
     void Start()
