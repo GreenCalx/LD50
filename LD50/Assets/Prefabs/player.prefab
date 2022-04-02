@@ -99,12 +99,16 @@ MonoBehaviour:
   dbg: 1
   movespeed: 1
   rotspeed: 100
-  height: 0.1
+  height: 1
   heightPadding: 0.05
   maxGroundAngle: 120
+  wallDetecDistance: 0.1
   ground:
     serializedVersion: 2
     m_Bits: 8
+  wall:
+    serializedVersion: 2
+    m_Bits: 64
   cam: {fileID: 0}
 --- !u!65 &1050839216
 BoxCollider:

@@ -11,8 +11,10 @@ public class PlayerController : MonoBehaviour
     public float height = 0.5f;
     public float heightPadding = 0.05f;
     public float maxGroundAngle = 120f;
+    public float wallDetecDistance = 1.0f;
     [Header("mand")]
     public LayerMask ground;
+    public LayerMask wall;
     public Camera cam;
 
     ///// inners
@@ -20,7 +22,8 @@ public class PlayerController : MonoBehaviour
     private float angle;
     private float groundAngle;
     private Vector3 forward;
-    private RaycastHit hitInfo;
+    private RaycastHit groundHitInfo;
+    private RaycastHit wallHitInfo;
     private bool grounded;
 
     private Transform cam_transform;
@@ -73,7 +76,11 @@ public class PlayerController : MonoBehaviour
     public void Move(){
         if (groundAngle >= maxGroundAngle)
             return;
-        transform.position += forward * movespeed * Time.unscaledDeltaTime;
+
+        Vector3 nextPos = transform.position + (forward * movespeed * Time.unscaledDeltaTime);
+
+        if (!CheckWalls())
+            transform.position = nextPos;
     }
 
     public void CalculateForward()
@@ -84,7 +91,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        forward = Vector3.Cross( hitInfo.normal, -transform.right);
+        forward = Vector3.Cross( groundHitInfo.normal, -transform.right);
     }
 
     public void CalculateGroundAngle()
@@ -94,17 +101,26 @@ public class PlayerController : MonoBehaviour
             groundAngle = 90;
             return;
         }
-        groundAngle = Vector3.Angle(hitInfo.normal, transform.forward);
+        groundAngle = Vector3.Angle(groundHitInfo.normal, transform.forward);
     }
 
     public void CheckGround()
     {
-        if ( Physics.Raycast(transform.position, -Vector3.up, out hitInfo, height + heightPadding, ground) )
+        if ( Physics.Raycast(transform.position, -Vector3.up, out groundHitInfo, height + heightPadding, ground) )
         {
             grounded = true;
         } else {
             grounded = false;
         }
+    }
+
+    public bool CheckWalls()
+    {
+        if ( Physics.Raycast(transform.position, forward, out wallHitInfo, wallDetecDistance, wall) )
+        {
+            return true;
+        }
+        return false;
     }
 
     public void ApplyGravity()
@@ -121,6 +137,6 @@ public class PlayerController : MonoBehaviour
 
         Debug.DrawLine(transform.position, transform.position + forward * height * 2, Color.blue);
         Debug.DrawLine(transform.position, transform.position - Vector3.up * height, Color.green);
-        
+        Debug.DrawLine(transform.position, transform.position - Vector3.up * height, Color.green);
     }
 }
