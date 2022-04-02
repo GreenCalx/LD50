@@ -12,12 +12,15 @@ public class ModeManager : MonoBehaviour
     public Mode mode;
     public Camera main_cam;
     public Camera gestion_cam;
+    private GestionUI gestionUI;
 
     // Start is called before the first frame update
     void Start()
     {
         main_cam.enabled = true;
         gestion_cam.enabled = false;
+        gestionUI = GetComponentInChildren<GestionUI>();
+        gestionUI.enabled = false;
         mode = Mode.real_time;
     }
 
@@ -32,6 +35,7 @@ public class ModeManager : MonoBehaviour
                     mode = Mode.gestion;
                     main_cam.enabled = false;
                     gestion_cam.enabled = true;
+                    gestionUI.enabled = true;
                     Time.timeScale = 0;
                     break;
 
@@ -39,6 +43,7 @@ public class ModeManager : MonoBehaviour
                     mode = Mode.real_time;
                     main_cam.enabled = true;
                     gestion_cam.enabled = false;
+                    gestionUI.enabled = false;
                     Time.timeScale = 1;
                     break;
             }

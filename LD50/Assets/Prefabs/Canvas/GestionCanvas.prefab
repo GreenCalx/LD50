@@ -130,6 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modules_group: {fileID: 0}
   gestionCursor: {fileID: 546557615409870671, guid: 76ca9db1660893141a49ea8d343026ff, type: 3}
+  basic: {r: 1, g: 0, b: 0, a: 1}
+  selected: {r: 0.015300989, g: 1, b: 0, a: 1}
 --- !u!223 &7167497284628973833
 Canvas:
   m_ObjectHideFlags: 0
