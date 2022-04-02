@@ -15,11 +15,13 @@ public class PlayerWeapon : MonoBehaviour
     public List<Enemy> in_range_enemies;
 
     protected GunTip missile_spawn;
+    protected PlayerController PC;
 
     // Start is called before the first frame update
     void Start()
     {
         missile_spawn = GetComponentInChildren<GunTip>();
+        PC = GetComponentInParent<PlayerController>();
         in_range_enemies = new List<Enemy>();
         locked_enemies = new List<Enemy>();
     }
@@ -59,6 +61,7 @@ public class PlayerWeapon : MonoBehaviour
         foreach(Enemy e in locked_enemies)
         {
             GameObject new_missile = Instantiate(missileRef, missile_spawn.gameObject.transform.position, Quaternion.identity);
+            new_missile.transform.rotation = PC.transform.rotation;
             // set target on missile
             PlayerMissile pm = new_missile.GetComponentInChildren<PlayerMissile>();
             if (!!pm)
