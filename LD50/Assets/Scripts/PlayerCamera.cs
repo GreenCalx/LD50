@@ -7,8 +7,6 @@ public class PlayerCamera : MonoBehaviour
     
     private Vector3 previousPosition;
 
-    private bool manual_cam = false;
-
     // AUTO CAM
     [SerializeField] public Transform focus = default;
     [SerializeField, Range(1f,50f)] public float distance = 5f;
@@ -43,7 +41,7 @@ public class PlayerCamera : MonoBehaviour
         UpdateFocusPoint();
         Quaternion lookRotation;
         
-        if (ManualRotation() || autoRotation() )
+        if (autoRotation() )
         {
             constrainAngles();
             lookRotation = Quaternion.Euler(orbitAngles);
@@ -95,19 +93,6 @@ public class PlayerCamera : MonoBehaviour
     }
 
 
-    bool ManualRotation () {
-		Vector2 input = new Vector2(
-			Input.GetAxis("Mouse Y") * (-1),
-			Input.GetAxis("Mouse X")
-		);
-		const float e = 0.001f;
-		if (input.x < -e || input.x > e || input.y < -e || input.y > e) {
-			orbitAngles += rotationSpeed * Time.unscaledDeltaTime * input;
-            lastManualRotationTime = Time.unscaledTime;
-            return true;
-		}
-        return false;
-	}
 
     bool autoRotation()
     {
