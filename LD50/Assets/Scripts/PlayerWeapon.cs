@@ -26,7 +26,7 @@ public class PlayerWeapon : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKey("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
