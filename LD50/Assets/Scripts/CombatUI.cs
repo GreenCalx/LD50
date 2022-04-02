@@ -12,10 +12,13 @@ public class CombatUI : Subscriber
     private Camera cam;
     private Dictionary<Enemy,GameObject> dicoEnemyCursors;
 
+    private Vector2 UIsizes; // to make ui resizable at all time ? check if useful
     [Header("tweaks")]
     public Color locked_color;
     public Color locking_color;
     public GameObject aim_cursor;
+    public Vector3 scaleGain = new Vector3(0.01f,0.01f,0.01f);
+    public float rotationGain = 0f;
 
 
     // Start is called before the first frame update
@@ -36,6 +39,7 @@ public class CombatUI : Subscriber
     // Update is called once per frame
     void Update()
     {
+        UIsizes = GetComponent<CanvasScaler>().referenceResolution;
         refreshAimed();
         refreshLocked();
         refreshOutOfRangeEnemies();
@@ -47,7 +51,7 @@ public class CombatUI : Subscriber
         Enemy e = iGO.GetComponent<Enemy>();
         if (e==null)
             return;
-            
+
         GameObject cursor;
         if (dicoEnemyCursors.TryGetValue(e, out cursor))
         {
@@ -81,11 +85,15 @@ public class CombatUI : Subscriber
     {
         Vector2 UIsizes = GetComponent<CanvasScaler>().referenceResolution;
 
-
         foreach( Enemy e in PW.in_range_enemies)
         {
             if (dicoEnemyCursors.ContainsKey(e))
+            {
+                updateCursorPosition(e, locking_color);
+                animateCursor(e);
                 continue;
+            }
+                
             
             Vector3 position = cam.WorldToScreenPoint(e.transform.position);
             GameObject cursor = Instantiate(aim_cursor, transform);
@@ -99,23 +107,40 @@ public class CombatUI : Subscriber
     }
     public void refreshLocked()
     {
-        Vector2 UIsizes = GetComponent<CanvasScaler>().referenceResolution;
 
         foreach( Enemy e in PW.locked_enemies)
         {
             if (!dicoEnemyCursors.ContainsKey(e))
                 continue;
 
-            GameObject cursor;
-            
-            if ( dicoEnemyCursors.TryGetValue( e, out cursor) ) 
-            {
-                Vector3 position = cam.WorldToScreenPoint(e.transform.position);
-                cursor.GetComponent<RectTransform>().anchoredPosition = position - new Vector3(UIsizes.x / 2, UIsizes.y / 2, 0);
-
-                RawImage im = cursor.GetComponent<RawImage>();
-                im.color = locked_color;
-            }
+            updateCursorPosition(e, locked_color);
         }
     }
+
+    public void updateCursorPosition( Enemy e, Color iColor)
+    {
+        GameObject cursor;
+        if ( dicoEnemyCursors.TryGetValue( e, out cursor) ) 
+        {
+            Vector3 position = cam.WorldToScreenPoint(e.transform.position);
+            cursor.GetComponent<RectTransform>().anchoredPosition = position - new Vector3(UIsizes.x / 2, UIsizes.y / 2, 0);
+            RawImage im = cursor.GetComponent<RawImage>();
+            im.color = iColor;
+        }
+    }
+
+    public void animateCursor( Enemy e )
+    {
+        GameObject cursor;
+        if ( dicoEnemyCursors.TryGetValue( e, out cursor) ) 
+        {
+            Vector3 position = cam.WorldToScreenPoint(e.transform.position);
+            cursor.GetComponent<RectTransform>().anchoredPosition = position - new Vector3(UIsizes.x / 2, UIsizes.y / 2, 0);
+            RawImage im = cursor.GetComponent<RawImage>();
+            cursor.transform.localScale += scaleGain;
+            cursor.transform.Rotate( 0f, 0f, rotationGain, Space.Self);
+        }
+    }
+
+
 }

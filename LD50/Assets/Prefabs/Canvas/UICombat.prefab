@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f346aeb6b21e4004c86769c809d3b576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locked_color: {r: 0.26842916, g: 1, b: 0, a: 1}
-  locking_color: {r: 1, g: 0, b: 0.09759998, a: 1}
+  locked_color: {r: 0.83137256, g: 0.074509785, b: 0.10414439, a: 1}
+  locking_color: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
   aim_cursor: {fileID: 546557615409870671, guid: b57f681dc5e7919438db04868696b03d, type: 3}
+  scaleGain: {x: 0.005, y: 0.005, z: 0.005}

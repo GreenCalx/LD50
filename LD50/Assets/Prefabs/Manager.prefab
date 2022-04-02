@@ -231,6 +231,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6206348551503851124}
     m_Modifications:
+    - target: {fileID: 2279135894413617534, guid: 86805fdc607c50b4ea381dae72e17876, type: 3}
+      propertyPath: scaleGain.x
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279135894413617534, guid: 86805fdc607c50b4ea381dae72e17876, type: 3}
+      propertyPath: scaleGain.y
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279135894413617534, guid: 86805fdc607c50b4ea381dae72e17876, type: 3}
+      propertyPath: scaleGain.z
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279135894413617534, guid: 86805fdc607c50b4ea381dae72e17876, type: 3}
+      propertyPath: rotationGain
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279135894413617534, guid: 86805fdc607c50b4ea381dae72e17876, type: 3}
+      propertyPath: locked_color.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279135894413617534, guid: 86805fdc607c50b4ea381dae72e17876, type: 3}
+      propertyPath: locking_color.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
     - target: {fileID: 3352373290898549441, guid: 86805fdc607c50b4ea381dae72e17876, type: 3}
       propertyPath: m_Name
       value: UICombat
