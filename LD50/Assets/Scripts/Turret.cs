@@ -15,7 +15,7 @@ public class Turret : Module
     // Update is called once per frame
     void Update()
     {
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        /*Enemy[] enemies = FindObjectsOfType<Enemy>();
         foreach (Enemy enemy in enemies)
         {
             float distance = Vector3.Distance(enemy.transform.position, transform.position);
@@ -23,6 +23,6 @@ public class Turret : Module
             {
                 enemy.Die();
             }
-        }
+        }*/
     }
 }
