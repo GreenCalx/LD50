@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMissile : MonoBehaviour
 {
+
+    public Transform target;
+    public float speed = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +17,30 @@ public class PlayerMissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (target != null)
+        {
+            chase();
+        }
+    }
+
+    public void chase()
+    {
+        float step =  speed * Time.deltaTime; // calculate distance to move
+        transform.position = Vector3.MoveTowards( transform.position, target.position, step);
+    }
+
+    void OnTriggerEnter(Collider iCollider)
+    {
+        Enemy e = iCollider.GetComponent<Enemy>();
+        if (e!=null)
+        {
+            e.Die();
+            explode();
+        }
+    }
+
+    private void explode()
+    {
+        Destroy(gameObject);
     }
 }

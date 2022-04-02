@@ -11,8 +11,8 @@ public class PlayerWeapon : MonoBehaviour
 
     [Header("tweaks")]
     public float lock_duration;
-    protected List<Enemy> locked_enemies;
-    protected List<Enemy> in_range_enemies;
+    public List<Enemy> locked_enemies;
+    public List<Enemy> in_range_enemies;
 
     protected GunTip missile_spawn;
 
@@ -20,6 +20,8 @@ public class PlayerWeapon : MonoBehaviour
     void Start()
     {
         missile_spawn = GetComponentInChildren<GunTip>();
+        in_range_enemies = new List<Enemy>();
+        locked_enemies = new List<Enemy>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class PlayerWeapon : MonoBehaviour
 
         foreach( Enemy e in in_range_enemies)
         {
-            e.lock_on_elapsed_time = e.lock_on_start_time - Time.time;
+            e.lock_on_elapsed_time = Time.time - e.lock_on_start_time;
             if ( e.lock_on_elapsed_time > lock_duration  )
             {
                 locked_enemies.Add(e);
@@ -53,51 +55,13 @@ public class PlayerWeapon : MonoBehaviour
         {
             GameObject new_missile = Instantiate(missileRef, missile_spawn.gameObject.transform.position, Quaternion.identity);
             // set target on missile
-        }
-    }
-
-    void OnTriggerEnter(Collider iCollider)
-    {
-        Enemy e = iCollider.GetComponent<Enemy>();
-        if ( e != null)
-        {
-            if (!in_range_enemies.Contains(e))
-            { 
-                in_range_enemies.Add(e); 
-                e.is_locked_by_player  = true;
-                e.lock_on_start_time = Time.time;
-            }
-        }
-    }
-
-    void OnTriggerStay(Collider iCollider)
-    {
-        Enemy e = iCollider.GetComponent<Enemy>();
-        if ( (e!=null) && !e.is_locked_by_player)
-        {
-            if (in_range_enemies.Contains(e))
-            { 
-                e.is_locked_by_player  = true; 
-                e.lock_on_start_time = Time.time; 
-            } 
+            PlayerMissile pm = new_missile.GetComponent<PlayerMissile>();
+            if (!!pm)
+                pm.target = e.transform;
             else
-            {  
-                in_range_enemies.Add(e); 
-                e.is_locked_by_player  = true;
-                e.lock_on_start_time = Time.time; 
-            }        
+                DestroyImmediate(new_missile);
         }
     }
 
-    void OnTriggerExit(Collider iCollider)
-    {
-        Enemy e = iCollider.GetComponent<Enemy>();
-        if ( e != null)
-        {
-            in_range_enemies.Remove(e); // if it was just in lock range
-            locked_enemies.Remove(e); // if it was locked
-            e.is_locked_by_player = false;
-            e.lock_on_start_time = 0;
-        }
-    }
+    
 }
