@@ -33,14 +33,19 @@ public class PlayerWeapon : MonoBehaviour
             Shoot();
         }
 
+        List<Enemy> toclean = new List<Enemy>();
         foreach( Enemy e in in_range_enemies)
         {
             e.lock_on_elapsed_time = Time.time - e.lock_on_start_time;
             if ( e.lock_on_elapsed_time > lock_duration  )
             {
                 locked_enemies.Add(e);
-                in_range_enemies.Remove(e);
+                toclean.Add(e);
             }
+        }
+        foreach(Enemy ec in toclean)
+        {
+            in_range_enemies.Remove(ec);
         }
     }
 
@@ -55,7 +60,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             GameObject new_missile = Instantiate(missileRef, missile_spawn.gameObject.transform.position, Quaternion.identity);
             // set target on missile
-            PlayerMissile pm = new_missile.GetComponent<PlayerMissile>();
+            PlayerMissile pm = new_missile.GetComponentInChildren<PlayerMissile>();
             if (!!pm)
                 pm.target = e.transform;
             else
