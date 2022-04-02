@@ -24,6 +24,8 @@ public class PlayerMissile : MonoBehaviour
         if (target != null)
         {
             chase();
+        } else {
+            explode();
         }
     }
 
