@@ -49,6 +49,7 @@ public class PlayerMissile : MonoBehaviour
     private void explode()
     {
         Instantiate( explosion, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(this.gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
