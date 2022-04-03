@@ -7,7 +7,7 @@ public class Turret : Module
     // Start is called before the first frame update
     void Start()
     {
-        level = 0;
+        BaseStart();
     }
 
     // Update is called once per frame

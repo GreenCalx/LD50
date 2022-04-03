@@ -9,11 +9,19 @@ public class Module : MonoBehaviour
     public int building_time = 10;
     public bool is_building = false;
     public float build_start_time;
+    public Mesh[] models;
+    private Help help;
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    protected void BaseStart()
+    {
+        help = GetComponentInParent<Modules>().help;
+        FinishBuild();
     }
 
     // Update is called once per frame
@@ -36,6 +44,7 @@ public class Module : MonoBehaviour
         {
             build_start_time = Time.time;
             is_building = true;
+            help.target = transform;
         }
     }
 
@@ -48,7 +57,12 @@ public class Module : MonoBehaviour
     {
         is_building = false;
         level++;
-        Debug.Log(this.name);
-        Debug.Log(level);
+        FinishBuild();
+    }
+
+    public void FinishBuild()
+    {
+        GetComponent<MeshFilter>().mesh = models[level];
+        help.TargetPlayer();
     }
 }

@@ -15,6 +15,7 @@ public class ModeManager : MonoBehaviour
     private GestionUI gestionUI;
 
     public GameObject player;
+    public GameObject modules_group;
 
     // Start is called before the first frame update
     void Start()

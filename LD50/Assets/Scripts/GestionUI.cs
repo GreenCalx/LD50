@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class GestionUI : MonoBehaviour
 {
-    public GameObject modules_group;
     public GameObject gestionCursor;
     public Color basic;
     public Color selected;
     private List<KeyValuePair<GameObject, Module>> module_cursors;
     private int selection_id;
+    private GameObject help;
 
     // Start is called before the first frame update
     void Start()
     {
         module_cursors = new List<KeyValuePair<GameObject, Module>>();
-        Module[] modules = modules_group.GetComponentsInChildren<Module>();
+        Module[] modules = GetComponentInParent<ModeManager>().modules_group.GetComponentsInChildren<Module>();
         Camera cam = GetComponentInParent<ModeManager>().gestion_cam;
         Vector2 UIsizes = GetComponent<CanvasScaler>().referenceResolution;
         foreach (Module module in modules)

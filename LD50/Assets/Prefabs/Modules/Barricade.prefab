@@ -46,6 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  level_max: 0
+  building_time: 10
+  is_building: 0
+  build_start_time: 0
+  models:
+  - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1951207199922054217
 MeshFilter:
   m_ObjectHideFlags: 0
