@@ -47,6 +47,7 @@ public class Rocket : Module
     {
         last_take_off_time = Time.time;
         is_traveling = true;
+        GetComponent<MeshFilter>().mesh = models[0];
     }
 
     public void Land()
@@ -54,6 +55,7 @@ public class Rocket : Module
         score += n_villager;
         n_villager = 0;
         is_traveling = false;
+        GetComponent<MeshFilter>().mesh = models[level];
     }
 
     public bool Embark()

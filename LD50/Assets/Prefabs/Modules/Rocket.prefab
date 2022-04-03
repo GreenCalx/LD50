@@ -53,7 +53,7 @@ MonoBehaviour:
   models:
   - {fileID: 0}
   - {fileID: -1721106302929804235, guid: 422d94087d0fb73438425dcfe9c95252, type: 3}
-  can_embark: 0
+  is_traveling: 0
   travel_time: 20
   capacity: 0
   n_villager: 0
