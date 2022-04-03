@@ -387,6 +387,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1287417180197849189, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
+      propertyPath: subs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287417180197849189, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
+      propertyPath: subs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1287417180197849188}
     - target: {fileID: 3683360119839162473, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -431,16 +439,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4825150307955226376, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
-      propertyPath: n_villagers
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6926093761313397184, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
       propertyPath: m_Name
       value: VillageManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
+--- !u!114 &1287417180197849188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5541493735227256900, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
+  m_PrefabInstance: {fileID: 1287417180197849187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe6fbe875dee3c47a2de90817830675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1796056691506926534
 PrefabInstance:
   m_ObjectHideFlags: 0

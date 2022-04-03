@@ -67,7 +67,6 @@ public class Villager : Observed
 
     public void updateTarget( Vector3 iTarget)
     {
-        Debug.DrawRay(iTarget, Vector3.up * 10, Color.red, 10, false);
         NavMesh.CalculatePath(transform.position, iTarget, NavMesh.AllAreas, path);
         navmesh.path = path;
     }
