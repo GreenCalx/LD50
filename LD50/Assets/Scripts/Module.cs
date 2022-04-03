@@ -11,6 +11,9 @@ public class Module : MonoBehaviour
     public float build_start_time;
     public Mesh[] models;
     private Help help;
+    private AudioClip sound_start_build;
+    private AudioClip sound_finish_build;
+    private AudioSource sound_player;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,10 @@ public class Module : MonoBehaviour
     {
         help = GetComponentInParent<Modules>().help;
         GetComponent<MeshFilter>().mesh = models[level];
+
+        sound_player = GetComponentInParent<AudioSource>();
+        sound_start_build = GetComponentInParent<Modules>().sound_start_build;
+        sound_finish_build = GetComponentInParent<Modules>().sound_finish_build;
     }
 
     // Update is called once per frame
@@ -38,18 +45,27 @@ public class Module : MonoBehaviour
         }
     }
 
-    public void Start_build()
+    public bool Start_build()
     {
-        BaseStart_build();
+        return BaseStart_build();
     }
 
-    public void BaseStart_build()
+    public bool BaseStart_build()
     {
         if (!is_building && (level < level_max))
         {
             build_start_time = Time.time;
             is_building = true;
             help.target = transform;
+
+            sound_player.clip = sound_start_build;
+            sound_player.Play();
+
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -64,5 +80,8 @@ public class Module : MonoBehaviour
         level++;
         GetComponent<MeshFilter>().mesh = models[level];
         help.TargetPlayer();
+
+        sound_player.clip = sound_finish_build;
+        sound_player.Play();
     }
 }

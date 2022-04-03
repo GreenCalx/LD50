@@ -8,10 +8,15 @@ public class GestionUI : MonoBehaviour
     public GameObject gestionCursor;
     public Color basic;
     public Color selected;
+    public Color building;
     private List<KeyValuePair<GameObject, Module>> module_cursors;
     private int selection_id;
     public int latch;
     private int frame_count = 0;
+    public AudioClip sound_select;
+    public AudioClip sound_nope;
+    public AudioClip sound_build_instruction;
+    private AudioSource sound_player;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +30,15 @@ public class GestionUI : MonoBehaviour
             Vector3 position = cam.WorldToScreenPoint(module.transform.position);
             GameObject cursor = Instantiate(gestionCursor, transform);
             cursor.GetComponent<RectTransform>().anchoredPosition = position - new Vector3(UIsizes.x / 2, UIsizes.y / 2, 0);
-            cursor.GetComponent<RawImage>().color = basic;
+            if (module.is_building)
+                cursor.GetComponent<RawImage>().color = building;
+            else
+                cursor.GetComponent<RawImage>().color = basic;
             module_cursors.Add(new KeyValuePair<GameObject, Module>(cursor, module));
         }
+
+        sound_player = GetComponent<AudioSource>();
+
         selection_id = 0;
         Select(0);
     }
@@ -51,18 +62,40 @@ public class GestionUI : MonoBehaviour
 
     private void Select(int direction)
     {
-        module_cursors[selection_id].Key.GetComponent<RawImage>().color = basic;
+        if (module_cursors[selection_id].Value.is_building)
+            module_cursors[selection_id].Key.GetComponent<RawImage>().color = building;
+        else
+            module_cursors[selection_id].Key.GetComponent<RawImage>().color = basic;
         selection_id = Math.Modulo((selection_id + direction), module_cursors.Count);
         module_cursors[selection_id].Key.GetComponent<RawImage>().color = selected;
+
+        if (direction != 0)
+        {
+            sound_player.clip = sound_select;
+            sound_player.Play();
+        }
     }
 
     private void Build()
     {
-        for (int id = 0; id < module_cursors.Count; id++)
+        if (module_cursors[selection_id].Value.Start_build())
         {
-            if (id != selection_id)
-                module_cursors[id].Value.Interrupt_build();
+            for (int id = 0; id < module_cursors.Count; id++)
+            {
+                if (id != selection_id)
+                {
+                    module_cursors[id].Value.Interrupt_build();
+                    module_cursors[id].Key.GetComponent<RawImage>().color = basic;
+                }
+            }
+
+            sound_player.clip = sound_build_instruction;
+            sound_player.Play();
         }
-        module_cursors[selection_id].Value.Start_build();
+        else
+        {
+            sound_player.clip = sound_nope;
+            sound_player.Play();
+        }
     }
 }

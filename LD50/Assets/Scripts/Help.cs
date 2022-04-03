@@ -18,16 +18,11 @@ public class Help : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(0.1f * speed * Time.deltaTime * new Vector3(1 - 2 * (Random.value), 1 - 2 * (Random.value), 1 - 2 * (Random.value)));
         transform.LookAt(target);
 
-        if (Vector3.Distance(transform.position, target.position) < distance)
-        {
-            transform.Translate(0.1f * speed * Time.deltaTime * new Vector3(1 - 2 * (Random.value), 1 - 2 * (Random.value), 1 - 2 * (Random.value)));
-        }
-        else
-        {
+        if (Vector3.Distance(transform.position, target.position) > distance)
             transform.Translate(speed * Time.deltaTime * new Vector3(0, 0, 1));
-        }
     }
 
     public void TargetPlayer()

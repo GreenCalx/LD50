@@ -37,10 +37,12 @@ public class Rocket : Module
         }
     }
 
-    new public void Start_build()
+    new public bool Start_build()
     {
         if (!is_traveling)
-            BaseStart_build();
+            return BaseStart_build();
+        else
+            return false;
     }
 
     public void Take_off()

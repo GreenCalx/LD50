@@ -8,6 +8,7 @@ public class Turret : Module
     void Start()
     {
         BaseStart();
+        GetComponentInChildren<PlayerWeapon>().gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class Turret : Module
                 break;
 
             case 1:
+                GetComponentInChildren<PlayerWeapon>().gameObject.SetActive(true);
                 break;
         }
     }
