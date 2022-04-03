@@ -14,14 +14,14 @@ public class Turret : Module
     void Update()
     {
         BaseUpdate();
-        /*Enemy[] enemies = FindObjectsOfType<Enemy>();
-        foreach (Enemy enemy in enemies)
+        
+        switch (level)
         {
-            float distance = Vector3.Distance(enemy.transform.position, transform.position);
-            if (distance < range)
-            {
-                enemy.Die();
-            }
-        }*/
+            case 0:
+                break;
+
+            case 1:
+                break;
+        }
     }
 }

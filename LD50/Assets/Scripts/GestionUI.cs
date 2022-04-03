@@ -10,7 +10,8 @@ public class GestionUI : MonoBehaviour
     public Color selected;
     private List<KeyValuePair<GameObject, Module>> module_cursors;
     private int selection_id;
-    private GameObject help;
+    public int latch;
+    private int frame_count = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +35,18 @@ public class GestionUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            Select(1);
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            Select(-1);
-        else if (Input.GetKeyDown(KeyCode.B))
-            Build();
+        if (frame_count > latch)
+        {
+            if (Input.GetAxisRaw("Horizontal") > 0)
+                Select(1);
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+                Select(-1);
+            else if (Input.GetAxisRaw("Fire1") > 0)
+                Build();
+            frame_count = 0;
+        }
+        frame_count++;
+
     }
 
     private void Select(int direction)
@@ -53,10 +60,9 @@ public class GestionUI : MonoBehaviour
     {
         for (int id = 0; id < module_cursors.Count; id++)
         {
-            if (id == selection_id)
-                module_cursors[selection_id].Value.Start_build();
-            else
+            if (id != selection_id)
                 module_cursors[id].Value.Interrupt_build();
         }
+        module_cursors[selection_id].Value.Start_build();
     }
 }

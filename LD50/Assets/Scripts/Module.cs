@@ -21,7 +21,7 @@ public class Module : MonoBehaviour
     protected void BaseStart()
     {
         help = GetComponentInParent<Modules>().help;
-        FinishBuild();
+        GetComponent<MeshFilter>().mesh = models[level];
     }
 
     // Update is called once per frame
@@ -34,11 +34,16 @@ public class Module : MonoBehaviour
     {
         if (is_building && (Time.time - build_start_time) >= building_time)
         {
-            LevelUp();
+            FinishBuild();
         }
     }
 
     public void Start_build()
+    {
+        BaseStart_build();
+    }
+
+    public void BaseStart_build()
     {
         if (!is_building && (level < level_max))
         {
@@ -53,15 +58,10 @@ public class Module : MonoBehaviour
         is_building = false;
     }
 
-    public void LevelUp()
+    public void FinishBuild()
     {
         is_building = false;
         level++;
-        FinishBuild();
-    }
-
-    public void FinishBuild()
-    {
         GetComponent<MeshFilter>().mesh = models[level];
         help.TargetPlayer();
     }

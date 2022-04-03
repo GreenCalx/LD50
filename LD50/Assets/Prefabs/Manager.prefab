@@ -51,7 +51,6 @@ MonoBehaviour:
   main_cam: {fileID: 8587223014978155247}
   gestion_cam: {fileID: 3645323530024242723}
   player: {fileID: 0}
-  help: {fileID: 0}
   modules_group: {fileID: 0}
 --- !u!1001 &4045285489100703444
 PrefabInstance:
