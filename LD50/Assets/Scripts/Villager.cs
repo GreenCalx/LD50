@@ -3,31 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Villager : MonoBehaviour
+public class Villager : Observed
 {
+    public float idle_duration = 2.0f;
     private NavMeshAgent navmesh;
     private const string walk_anim_param = "walk";
     private Animator animator;
 
-    public Transform target;
+    private NavMeshPath path;
     private Rigidbody rb;
+    private float idle_elapsed_time;
 
     private bool walk;
+
+    private bool inited = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        init();
+    }
+
+    public void init()
+    {
+        if (inited)
+            return;
+
         animator = GetComponent<Animator>();
         navmesh = GetComponent<NavMeshAgent>();
         rb = GetComponentInChildren<Rigidbody>();
-        walk = true;
+        walk = false;
+        path = new NavMeshPath();
+        idle_elapsed_time = 0f;
+        inited = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        walk = ( rb.velocity.magnitude > 0.0001f );
+        if ( obs == null )
+            return;
+        
+        if (navmesh.remainingDistance == 0f)
+        {
+            if (walk)
+                idle_elapsed_time = 0f;
+            walk = false;
+
+            if ( idle_elapsed_time > idle_duration )
+            {
+                notify(); // request new target position
+            } else {
+                idle_elapsed_time += Time.deltaTime;
+            }
+            
+        } else {
+            walk = true;
+        }
+        
         animator.SetBool( walk_anim_param, walk);
-        navmesh.destination = target.position;
+        //rb.gameObject.transform.LookAt(target);
+    }
+
+    public void updateTarget( Vector3 iTarget)
+    {
+        Debug.DrawRay(iTarget, Vector3.up * 10, Color.red, 10, false);
+        NavMesh.CalculatePath(transform.position, iTarget, NavMesh.AllAreas, path);
+        navmesh.path = path;
     }
 }
