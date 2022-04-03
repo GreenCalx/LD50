@@ -22,7 +22,7 @@ public class Help : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.position) < distance)
         {
-            transform.Translate(speed * Time.deltaTime * new Vector3(1 - 2 * (Random.value), 1 - 2 * (Random.value), 1 - 2 * (Random.value)));
+            transform.Translate(0.1f * speed * Time.deltaTime * new Vector3(1 - 2 * (Random.value), 1 - 2 * (Random.value), 1 - 2 * (Random.value)));
         }
         else
         {

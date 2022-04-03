@@ -50,6 +50,7 @@ MonoBehaviour:
   distance: 0.2
   player: {fileID: 0}
   speed: 0.4
+  min_height: 1
 --- !u!33 &5360849740567353812
 MeshFilter:
   m_ObjectHideFlags: 0
