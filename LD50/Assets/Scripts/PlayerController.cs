@@ -139,4 +139,9 @@ public class PlayerController : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position - Vector3.up * height, Color.green);
         Debug.DrawLine(transform.position, transform.position - Vector3.up * height, Color.green);
     }
+
+    public void kill()
+    {
+        Debug.Log("PLAYER KILLED. GAME OVER!");
+    }
 }
