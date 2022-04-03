@@ -219,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 2303673357263905585}
     - target: {fileID: 1378290431415825118, guid: b8269e5ebeaee5b40977091aa43b6344, type: 3}
       propertyPath: n_villagers
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5152576591469370799, guid: b8269e5ebeaee5b40977091aa43b6344, type: 3}
       propertyPath: m_RootOrder
@@ -300,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 2303673357263905585}
     - target: {fileID: 1378290431415825118, guid: b8269e5ebeaee5b40977091aa43b6344, type: 3}
       propertyPath: n_villagers
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5152576591469370799, guid: b8269e5ebeaee5b40977091aa43b6344, type: 3}
       propertyPath: m_RootOrder

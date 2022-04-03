@@ -10,6 +10,7 @@ public class House : Subscriber
         EVACUATE = 1
     };
 
+    public int HP = 3;
     public int n_villagers = 5;
     public float time_between_spawns = 1f;
     public Transform spawn_location;
@@ -97,6 +98,22 @@ public class House : Subscriber
             v.updateTarget( getNewIDLELocation(v) );
     }
 
+    public void applyOrderAll()
+    {
+        foreach ( GameObject go in spawned_villagers)
+        {
+            Villager v = go.GetComponent<Villager>();
+            if (v==null)
+                continue;
+                
+            if ( order == HOUSE_ORDER.EVACUATE)        
+                v.updateTarget( evacuationPoint.transform.position );
+            else
+                v.updateTarget( getNewIDLELocation(v) );
+        }
+
+    }
+
     public void changeOrder( HOUSE_ORDER iNewOrder)
     {
         order = iNewOrder;
@@ -114,5 +131,25 @@ public class House : Subscriber
         if (v==null)
             return;
         applyOrder(v);
+    }
+
+    public void damage()
+    {
+        HP--;
+        if (HP<=0)
+            kill();
+    }
+
+    public void kill()
+    {
+        // send villagers to evacuation
+        order = HOUSE_ORDER.EVACUATE;
+        applyOrderAll();
+
+        // unsubscribe, notify parents etc..
+        // needed ?
+
+        // destroy itself
+        Destroy(gameObject);
     }
 }

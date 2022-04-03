@@ -17,11 +17,17 @@ public class Observer : MonoBehaviour
         
     }
 
+    public virtual void removeSubscriber(Subscriber iSub)
+    {
+        subs.Remove(iSub);
+    }
+
     public virtual void notified(GameObject iGO)
     {
         foreach(Subscriber s in subs)
         {
-            s.notify( iGO );
+            if (!!s)
+                s.notify( iGO );
         }
     }
 }

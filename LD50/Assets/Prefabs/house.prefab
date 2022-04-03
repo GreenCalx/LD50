@@ -113,11 +113,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe6fbe875dee3c47a2de90817830675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  n_villagers: 5
+  HP: 3
+  n_villagers: 3
   time_between_spawns: 1
   spawn_location: {fileID: 3120515115353317703}
   idle_area: {fileID: 0}
   villagerRef: {fileID: 5107644665707485985, guid: 33f7ef5409be42244b7f1f18c52e75a4, type: 3}
+  evacuationPoint: {fileID: 0}
 --- !u!64 &919132148769622689
 MeshCollider:
   m_ObjectHideFlags: 0

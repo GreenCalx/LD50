@@ -18,4 +18,9 @@ public class Subscriber : MonoBehaviour
     {
 
     }
+
+    public virtual void deleteSelf( GameObject iGO ) 
+    {
+
+    }
 }

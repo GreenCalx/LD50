@@ -80,4 +80,9 @@ public class Villager : Observed
     {
         evacuated = true;
     }
+
+    public void kill()
+    {
+        
+    }
 }
