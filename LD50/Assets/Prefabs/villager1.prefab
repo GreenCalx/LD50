@@ -595,7 +595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obs: {fileID: 0}
-  target: {x: 0, y: 0, z: 0}
+  idle_duration: 2
+  evacuated: 0
 --- !u!95 &3269073457024590162
 Animator:
   serializedVersion: 3
@@ -810,7 +811,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!136 &5838375832137473676
 CapsuleCollider:

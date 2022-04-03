@@ -45,6 +45,11 @@ public class Rocket : Module
             return false;
     }
 
+    public bool isReady()
+    {
+        return ( ( level > 0 ) && (!is_traveling) && ( !is_building ) );
+    }
+
     public void Take_off()
     {
         last_take_off_time = Time.time;
