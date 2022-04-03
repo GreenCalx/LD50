@@ -8,20 +8,21 @@ public class TurretWeapon : MonoBehaviour
     public Image  cursor;
     public GameObject missileRef;
 
-
     [Header("tweaks")]
     public float lock_duration;
+    public float shoot_time = 1f;
     public List<Enemy> locked_enemies;
     public List<Enemy> in_range_enemies;
 
     protected GunTip missile_spawn;
-    protected Turret PC;
+    protected Turret turret;
+    private float last_shot_time = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         missile_spawn = GetComponentInChildren<GunTip>();
-        PC = GetComponentInParent<Turret>();
+        turret = GetComponentInParent<Turret>();
         in_range_enemies = new List<Enemy>();
         locked_enemies = new List<Enemy>();
     }
@@ -30,9 +31,10 @@ public class TurretWeapon : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetButtonDown("Fire1"))
+        if (turret.level > 0 && Time.time - last_shot_time > shoot_time)
         {
             Shoot();
+            last_shot_time = Time.time;
         }
 
         List<Enemy> toclean = new List<Enemy>();
@@ -61,13 +63,13 @@ public class TurretWeapon : MonoBehaviour
         foreach(Enemy e in locked_enemies)
         {
             GameObject new_missile = Instantiate(missileRef, missile_spawn.gameObject.transform.position, Quaternion.identity);
-            new_missile.transform.rotation = PC.transform.rotation;
+            new_missile.transform.rotation = turret.transform.rotation;
             // set target on missile
-            PlayerMissile pm = new_missile.GetComponentInChildren<PlayerMissile>();
-            if (!!pm)
+            TurretMissile turret_missile = new_missile.GetComponentInChildren<TurretMissile>();
+            if (!!turret_missile)
             {
-                pm.target = e.transform;
-                //pm.PW = this;
+                turret_missile.target = e.transform;
+                turret_missile.turret_weapon = this;
             }
             else
                 DestroyImmediate(new_missile);

@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 0}
-  missileRef: {fileID: 0}
-  lock_duration: 0
+  missileRef: {fileID: 2674087720886225684, guid: 819e75c0696d630419ef6679eeda8c40, type: 3}
+  lock_duration: 0.1
+  shoot_time: 1
   locked_enemies: []
   in_range_enemies: []
 --- !u!64 &2634551515699098672
@@ -318,7 +319,7 @@ GameObject:
   - component: {fileID: 6646542268165225769}
   - component: {fileID: 5282169988446317061}
   - component: {fileID: 8831237811869422514}
-  - component: {fileID: 5062740022535385013}
+  - component: {fileID: 7905390790328854318}
   - component: {fileID: 1513946431706463059}
   m_Layer: 0
   m_Name: weaponrange
@@ -334,13 +335,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8389209780887075585}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: 64.7}
-  m_LocalScale: {x: 901.38055, y: 6337.5166, z: 901.38055}
+  m_LocalRotation: {x: -0.60841364, y: -0, z: -0, w: 0.7936201}
+  m_LocalPosition: {x: 0, y: -15, z: 52.3}
+  m_LocalScale: {x: 908.53, y: 6337.5166, z: 901.38055}
   m_Children: []
   m_Father: {fileID: 1714588582110005228}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -74.95, y: 0, z: 0}
 --- !u!33 &5282169988446317061
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -390,7 +391,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5062740022535385013
+--- !u!114 &7905390790328854318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -399,7 +400,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8389209780887075585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c560b04baeda924a81770586b8eb0a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d877cd597de00d4cbff0bad80d96882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!64 &1513946431706463059
