@@ -30,10 +30,6 @@ public class GestionUI : MonoBehaviour
             Vector3 position = cam.WorldToScreenPoint(module.transform.position);
             GameObject cursor = Instantiate(gestionCursor, transform);
             cursor.GetComponent<RectTransform>().anchoredPosition = position - new Vector3(UIsizes.x / 2, UIsizes.y / 2, 0);
-            if (module.is_building)
-                cursor.GetComponent<RawImage>().color = building;
-            else
-                cursor.GetComponent<RawImage>().color = basic;
             module_cursors.Add(new KeyValuePair<GameObject, Module>(cursor, module));
         }
 
@@ -58,16 +54,21 @@ public class GestionUI : MonoBehaviour
         }
         frame_count++;
 
+        for (int id = 0; id < module_cursors.Count; id++)
+        {
+            if (id == selection_id)
+                module_cursors[id].Key.GetComponent<RawImage>().color = selected;
+            else if (module_cursors[id].Value.is_building)
+                module_cursors[id].Key.GetComponent<RawImage>().color = building;
+            else
+                module_cursors[id].Key.GetComponent<RawImage>().color = basic;
+        }
+
     }
 
-    private void Select(int direction)
+    public void Select(int direction)
     {
-        if (module_cursors[selection_id].Value.is_building)
-            module_cursors[selection_id].Key.GetComponent<RawImage>().color = building;
-        else
-            module_cursors[selection_id].Key.GetComponent<RawImage>().color = basic;
         selection_id = Math.Modulo((selection_id + direction), module_cursors.Count);
-        module_cursors[selection_id].Key.GetComponent<RawImage>().color = selected;
 
         if (direction != 0)
         {
@@ -85,7 +86,6 @@ public class GestionUI : MonoBehaviour
                 if (id != selection_id)
                 {
                     module_cursors[id].Value.Interrupt_build();
-                    module_cursors[id].Key.GetComponent<RawImage>().color = basic;
                 }
             }
 

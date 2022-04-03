@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1714588582110005228}
   - component: {fileID: 2970924883449893196}
   - component: {fileID: 1182372277358751828}
-  - component: {fileID: 2250213748586877921}
+  - component: {fileID: 3330449687591721321}
   - component: {fileID: 2634551515699098672}
   m_Layer: 0
   m_Name: weapon
@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: 0.01396, y: 0.013959999, z: 0.0071400004}
   m_Children:
   - {fileID: 78903306232918404}
+  - {fileID: 7000479305490794915}
   - {fileID: 6646542268165225769}
   m_Father: {fileID: 6540985313157098451}
   m_RootOrder: 0
@@ -85,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2250213748586877921
+--- !u!114 &3330449687591721321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,12 +95,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2167206627231454526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d9b62daadfb8d4a9fb38543b83f264, type: 3}
+  m_Script: {fileID: 11500000, guid: 9439398343296f1489d6dd4436c6c167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 0}
-  missileRef: {fileID: 2674087720886225684, guid: 0365ac7076c5ae741a0088d9e26154d9, type: 3}
-  lock_duration: 1
+  missileRef: {fileID: 0}
+  lock_duration: 0
   locked_enemies: []
   in_range_enemies: []
 --- !u!64 &2634551515699098672
@@ -116,6 +117,49 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4020313881474688948, guid: 615214f5289809e45b866fb419be111e, type: 3}
+--- !u!1 &5425493278972831324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7000479305490794915}
+  - component: {fileID: 527486815420434374}
+  m_Layer: 0
+  m_Name: Cannon_right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7000479305490794915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5425493278972831324}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4, y: 1.5, z: 19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1714588582110005228}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &527486815420434374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5425493278972831324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09cda54a3c0597e49a0d7f24bf923cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6098199108273477752
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +275,7 @@ GameObject:
   - component: {fileID: 78903306232918404}
   - component: {fileID: 3363987623896326228}
   m_Layer: 0
-  m_Name: Cannon
+  m_Name: Cannon_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,7 +289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7938268038308582663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.81}
+  m_LocalPosition: {x: -4, y: 1.5, z: 19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1714588582110005228}
@@ -295,7 +339,7 @@ Transform:
   m_LocalScale: {x: 901.38055, y: 6337.5166, z: 901.38055}
   m_Children: []
   m_Father: {fileID: 1714588582110005228}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5282169988446317061
 MeshFilter:
