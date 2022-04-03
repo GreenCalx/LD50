@@ -18,7 +18,7 @@ public class House : Subscriber
     [HideInInspector]
     public GameObject evacuationPoint;
     [HideInInspector]
-    public HOUSE_ORDER order;
+    private HOUSE_ORDER order;
 
     private List<GameObject> spawned_villagers;
     private float time_last_spawn;
@@ -89,15 +89,30 @@ public class House : Subscriber
         return this.gameObject.transform.position; // default is house
     }
 
+    public void applyOrder(Villager v)
+    {
+        if ( order == HOUSE_ORDER.EVACUATE)        
+            v.updateTarget( evacuationPoint.transform.position );
+        else
+            v.updateTarget( getNewIDLELocation(v) );
+    }
+
+    public void changeOrder( HOUSE_ORDER iNewOrder)
+    {
+        order = iNewOrder;
+        foreach( GameObject go in spawned_villagers )
+        {
+            Villager v = go.GetComponent<Villager>();
+            if (!!v)
+                applyOrder(v);
+        }
+    }
+
     public override void notify(GameObject iGO)
     {
         Villager v = iGO.GetComponent<Villager>();
         if (v==null)
             return;
-        if ( order == HOUSE_ORDER.EVACUATE)        
-            v.updateTarget( evacuationPoint.transform.position );
-        else
-            v.updateTarget( getNewIDLELocation(v) );
-        
+        applyOrder(v);
     }
 }

@@ -440,6 +440,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5474213662836514103, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.543
+      objectReference: {fileID: 0}
     - target: {fileID: 6926093761313397184, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
       propertyPath: m_Name
       value: VillageManager

@@ -36,19 +36,21 @@ public class VillageManager : Observer
     {
         if ( rocket.isReady() )
         {
-            evacuate(true);
+            if (!evac.evacuate)
+                evacuate(true);
+            evac.evacuate = true;
         } else {
-            evacuate(false);
+            if (evac.evacuate)
+                evacuate(false);
             evac.evacuate = false;
         }
     }
 
     public void evacuate(bool iState)
     {
-        evac.evacuate = true;
         foreach( House h in houses)
         {
-            h.order = (iState) ? House.HOUSE_ORDER.EVACUATE : House.HOUSE_ORDER.IDLE;
+            h.changeOrder( (iState) ? House.HOUSE_ORDER.EVACUATE : House.HOUSE_ORDER.IDLE );
         }
     }
 
