@@ -46,6 +46,12 @@ public class VillageManager : Observer
         }
     }
 
+    public House getRandomHouse()
+    {
+        int i = Random.Range( 0, houses.Count);
+        return houses[i];
+    }
+
     public void evacuate(bool iState)
     {
         foreach( House h in houses)
