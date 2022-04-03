@@ -314,6 +314,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f346aeb6b21e4004c86769c809d3b576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1768018425 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5474213662836514103, guid: 30a457c83f6ec304b95308f6b91cee7e, type: 3}
+  m_PrefabInstance: {fileID: 1287417180197849187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1933125083 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1774974500557628760, guid: aedbcf21c89521a41a3dfdda7db13cc9, type: 3}
@@ -783,26 +788,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4752606964209655481, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.144
-      objectReference: {fileID: 0}
-    - target: {fileID: 4752606964209655481, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.194
-      objectReference: {fileID: 0}
-    - target: {fileID: 4752606964209655481, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.468
-      objectReference: {fileID: 0}
-    - target: {fileID: 6070974322580725810, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
-      propertyPath: n_spawns
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8817507628246519434, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
       propertyPath: VM
       value: 
       objectReference: {fileID: 984703724}
+    - target: {fileID: 8817507628246519434, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
+      propertyPath: evacPoint
+      value: 
+      objectReference: {fileID: 1768018425}
     - target: {fileID: 8817507628246519434, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
       propertyPath: subs.Array.data[0]
       value: 

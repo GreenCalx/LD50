@@ -55,10 +55,15 @@ public class EnemyAttack : MonoBehaviour
 
     void OnTriggerStay( Collider iCollider)
     {
+        if (iCollider.GetComponent<WeaponRange>())
+            return;
+
         updateTarget(iCollider);
     }
     void OnTriggerExit( Collider iCollider)
     {
+        if (iCollider.GetComponent<WeaponRange>())
+            return;
         parent.resetTarget();
     } 
 }

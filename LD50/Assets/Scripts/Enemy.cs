@@ -57,14 +57,21 @@ public class Enemy :  Observed
             init();
         if (is_dead)
             return;
-            
+
         NavMesh.CalculatePath(transform.position, iTarget, NavMesh.AllAreas, path);
         navmesh.path = path;
     }
 
     public void resetTarget()
     {
-        updateTarget(baseTarget.position);
+        if (!!baseTarget)
+            updateTarget(baseTarget.position);
+        else
+        { 
+            GetComponentInParent<EnemyManager>().reassign(this);
+            //Debug.LogWarning("Forced death cause no more reset target on enemy."); 
+            //Die(); 
+        }
     }
 
     public void Die()
