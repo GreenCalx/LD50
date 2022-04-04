@@ -56,5 +56,7 @@ public class Help : MonoBehaviour
         target = target_transform;
         going_building = true;
         is_building = false;
+
+        sound_player.Stop();
     }
 }
