@@ -217,9 +217,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gestionCursor: {fileID: 546557615409870671, guid: 76ca9db1660893141a49ea8d343026ff, type: 3}
-  basic: {r: 1, g: 0, b: 0, a: 1}
-  selected: {r: 0.015300989, g: 1, b: 0, a: 1}
-  building: {r: 0, g: 0, b: 1, a: 1}
+  basic: {r: 1, g: 1, b: 1, a: 1}
+  selected: {r: 0.4879696, g: 0.9150943, b: 0.28920433, a: 1}
+  building: {r: 0.2783019, g: 0.6323041, b: 1, a: 1}
   latch: 7
   sound_select: {fileID: 8300000, guid: 95b692048b69a3847a52c408d7bd6dc7, type: 3}
   sound_nope: {fileID: 8300000, guid: cc4a42f2ece052c49ba6c34445d3868a, type: 3}

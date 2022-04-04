@@ -10,6 +10,7 @@ public class GestionUI : MonoBehaviour
     public Color selected;
     public Color building;
     private List<KeyValuePair<GameObject, Module>> module_cursors;
+    private List<GameObject> icons;
     private int selection_id;
     public int latch = 10;
     private int frame_count = 0;
@@ -23,6 +24,8 @@ public class GestionUI : MonoBehaviour
     void Start()
     {
         module_cursors = new List<KeyValuePair<GameObject, Module>>();
+        icons = new List<GameObject>();
+
         Module[] modules = GetComponentInParent<ModeManager>().modules_group.GetComponentsInChildren<Module>();
         Camera cam = GetComponentInParent<ModeManager>().gestion_cam;
         //Vector2 UIsizes = GetComponent<CanvasScaler>().referenceResolution;
@@ -30,9 +33,16 @@ public class GestionUI : MonoBehaviour
         foreach (Module module in modules)
         {
             Vector3 position = cam.WorldToScreenPoint(module.transform.position);
+
             GameObject cursor = Instantiate(gestionCursor, transform);
             cursor.GetComponent<RectTransform>().anchoredPosition = position - new Vector3(UIsizes.x / 2, UIsizes.y / 2, 0);
+
             module_cursors.Add(new KeyValuePair<GameObject, Module>(cursor, module));
+
+            GameObject icon = Instantiate(module.GetComponent<Module>().icon, transform);
+            icon.GetComponent<RectTransform>().anchoredPosition = position - new Vector3(UIsizes.x / 2, UIsizes.y / 2, 0);
+
+            icons.Add(icon);
         }
 
         sound_player = GetComponent<AudioSource>();
@@ -69,11 +79,23 @@ public class GestionUI : MonoBehaviour
         for (int id = 0; id < module_cursors.Count; id++)
         {
             if (id == selection_id)
+            {
                 module_cursors[id].Key.GetComponent<RawImage>().color = selected;
+                if (module_cursors[id].Value.is_building)
+                    icons[id].GetComponent<RawImage>().color = building;
+                else
+                    icons[id].GetComponent<RawImage>().color = basic;
+            }
             else if (module_cursors[id].Value.is_building)
+            {
                 module_cursors[id].Key.GetComponent<RawImage>().color = building;
+                icons[id].GetComponent<RawImage>().color = building;
+            }
             else
+            {
                 module_cursors[id].Key.GetComponent<RawImage>().color = basic;
+                icons[id].GetComponent<RawImage>().color = basic;
+            }
         }
 
     }

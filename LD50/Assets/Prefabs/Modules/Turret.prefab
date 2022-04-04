@@ -408,6 +408,7 @@ MonoBehaviour:
   models:
   - {fileID: -8704150429667552673, guid: 1deaee5730d5bb74ab27df693f7c442f, type: 3}
   - {fileID: 702413855610331935, guid: 1deaee5730d5bb74ab27df693f7c442f, type: 3}
+  icon: {fileID: 546557615409870671, guid: a70b7e9d8e7b67e4a9b43b012df9f233, type: 3}
 --- !u!33 &5014924096282767450
 MeshFilter:
   m_ObjectHideFlags: 0

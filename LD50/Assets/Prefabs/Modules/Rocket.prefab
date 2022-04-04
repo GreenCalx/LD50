@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: -1721106302929804235, guid: 422d94087d0fb73438425dcfe9c95252, type: 3}
   - {fileID: -446744036491343323, guid: 422d94087d0fb73438425dcfe9c95252, type: 3}
+  icon: {fileID: 546557615409870671, guid: 03e5af535365e42498fe996552ae282b, type: 3}
   is_traveling: 0
   started_landing: 0
   travel_time: 20

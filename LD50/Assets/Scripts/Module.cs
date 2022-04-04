@@ -12,6 +12,8 @@ public class Module : MonoBehaviour
     public Mesh[] models;
     private Help help;
 
+    public GameObject icon;
+
     private AudioClip sound_start_build;
     private AudioClip sound_finish_build;
     protected AudioSource sound_player;
