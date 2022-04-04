@@ -211,8 +211,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -396, y: 312}
-  m_SizeDelta: {x: 174.0305, y: 56.539}
+  m_AnchoredPosition: {x: -309.38358, y: 312}
+  m_SizeDelta: {x: 347.2633, y: 56.539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2926532696428366485
 CanvasRenderer:
@@ -255,11 +255,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Move: WASD or Arrows
-
-    Shoot: <Fire1>
-
-    Build mode: <Fire2>'
+  m_Text: "         Move:    WASD   |     Arrows      |   (L)\n         Shoot:   
+    Space    |    Left click    |   (A)\nBuild mode:       Alt       |   Right click  
+    |   (B)"
 --- !u!1001 &1196658387744350918
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -275.4537, y: 298.53955}
-  m_SizeDelta: {x: 411.4209, y: 81.2073}
+  m_AnchoredPosition: {x: -210.03293, y: 298.53955}
+  m_SizeDelta: {x: 542.2625, y: 81.2073}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7622468643153096571
 CanvasRenderer:
@@ -155,14 +155,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cycle module: A, D or Left, Right arrows
-
-    Build: <Fire1>
-
-    Action
-    Mode: <Fire2>
-
-'
+  m_Text: "Cycle modules:     A, D   |    Left, Right arrows   |   (L)\n               
+    Build:   space   |             Left click        |   (A)\n   Action Mode:     
+    Alt      |            Right click       |   (B)\n"
 --- !u!1 &3386814794935676927
 GameObject:
   m_ObjectHideFlags: 0
