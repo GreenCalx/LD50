@@ -19,6 +19,9 @@ public class House : Subscriber
     [HideInInspector]
     public GameObject evacuationPoint;
 
+    public GameObject explosion;
+    public GameObject warning;
+
     public HOUSE_ORDER order;
 
     public List<GameObject> spawned_villagers;
@@ -151,6 +154,10 @@ public class House : Subscriber
 
         // unsubscribe, notify parents etc..
         // needed ?
+
+        GameObject boom = Instantiate(explosion);
+        boom.transform.position = transform.position;
+        Instantiate(warning);
 
         // destroy itself
         Destroy(gameObject);
