@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Turret : Module
 {
+    public float shoot_time;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,11 @@ public class Turret : Module
                 break;
 
             case 1:
+                shoot_time = 1f;
+                break;
+
+            case 2:
+                shoot_time = 0.3f;
                 break;
         }
     }

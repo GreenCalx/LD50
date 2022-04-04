@@ -33,7 +33,7 @@ public class Rocket : Module
     {
         BaseUpdate();
 
-        capacity = 10 * level;
+        capacity = 7 * level;
 
         switch (level)
         {

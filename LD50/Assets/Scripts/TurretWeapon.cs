@@ -10,7 +10,6 @@ public class TurretWeapon : Subscriber
 
     [Header("tweaks")]
     public float lock_duration;
-    public float shoot_time = 1f;
     public List<Enemy> in_range_enemies;
 
     protected GunTip missile_spawn;
@@ -35,7 +34,7 @@ public class TurretWeapon : Subscriber
     void Update()
     {
         
-        if (turret.level > 0 && Time.time - last_shot_time > shoot_time)
+        if (turret.level > 0 && Time.time - last_shot_time > turret.shoot_time)
         {
             Shoot();
             last_shot_time = Time.time;

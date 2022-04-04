@@ -155,9 +155,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Cycle modules:     A, D   |    Left, Right arrows   |   (L)\n               
-    Build:   space   |             Left click        |   (A)\n   Action Mode:     
-    Alt      |            Right click       |   (B)\n"
+  m_Text: " Cycle modules:    A, D    |    Left, Right arrows   |   (L)\nBuild /
+    Upgrade:   space   |            Left click         |   (A)\n           Resume:     
+    Alt      |           Right click       |   (B)\n"
 --- !u!1 &3386814794935676927
 GameObject:
   m_ObjectHideFlags: 0

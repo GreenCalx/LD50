@@ -7,6 +7,7 @@ public class EnemyManager : Observer
     public VillageManager VM;
     private List<EnemySpawner> spawners;
     public float spawn_interval = 5f;
+    public float spawn_interval_decrease_rate = 1f;
     private float last_spawn_time;
     public Transform evacPoint;
 
@@ -22,6 +23,8 @@ public class EnemyManager : Observer
     {
         if ( (Time.time - last_spawn_time) > spawn_interval )
             spawn();
+
+        spawn_interval *= (1 - spawn_interval_decrease_rate * Time.deltaTime);
     }
 
     public void refreshSpawners()
