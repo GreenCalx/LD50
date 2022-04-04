@@ -11,7 +11,6 @@ public class TurretWeapon : Subscriber
     [Header("tweaks")]
     public float lock_duration;
     public float shoot_time = 1f;
-    public List<Enemy> locked_enemies;
     public List<Enemy> in_range_enemies;
 
     protected GunTip missile_spawn;
@@ -28,7 +27,6 @@ public class TurretWeapon : Subscriber
         missile_spawn = GetComponentInChildren<GunTip>();
         turret = GetComponentInParent<Turret>();
         in_range_enemies = new List<Enemy>();
-        locked_enemies = new List<Enemy>();
 
         sound_player = GetComponent<AudioSource>();
     }
@@ -42,34 +40,22 @@ public class TurretWeapon : Subscriber
             Shoot();
             last_shot_time = Time.time;
         }
-
-        List<Enemy> toclean = new List<Enemy>();
-        foreach( Enemy e in in_range_enemies)
-        {
-            e.lock_on_elapsed_time = Time.time - e.lock_on_start_time;
-            if ( e.lock_on_elapsed_time > lock_duration  )
-            {
-                locked_enemies.Add(e);
-                toclean.Add(e);
-            }
-        }
-        foreach(Enemy ec in toclean)
-        {
-            in_range_enemies.Remove(ec);
-        }
     }
 
     public void Shoot()
     {
-        if (locked_enemies.Count > 0)
-            sound_player.clip = sound_fire;
-
         if (!missile_spawn)
         {
             Debug.LogError("Missing Missile Spawner reference.");
             return;
         }
-        foreach(Enemy e in locked_enemies)
+
+        if (in_range_enemies.Count<=0)
+            return;
+
+        int target_id = Random.Range( 0, in_range_enemies.Count-1);
+        Enemy e = in_range_enemies[target_id];
+        if (e!=null)
         {
             GameObject new_missile = Instantiate(missileRef, missile_spawn.gameObject.transform.position, Quaternion.identity);
             new_missile.transform.rotation = turret.transform.rotation;
@@ -87,8 +73,7 @@ public class TurretWeapon : Subscriber
 
     public void notifyDeath(Enemy iE)
     {
-        if (!locked_enemies.Remove(iE))
-            in_range_enemies.Remove(iE);
+        in_range_enemies.Remove(iE);
     }
 
     public override void notify(GameObject iGO)

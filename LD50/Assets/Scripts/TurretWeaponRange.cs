@@ -58,7 +58,6 @@ public class TurretWeaponRange : MonoBehaviour
         if ( e != null)
         {
             turret_weapon.in_range_enemies.Remove(e); // if it was just in lock range
-            turret_weapon.locked_enemies.Remove(e); // if it was locked
             e.is_locked_by_player = false;
             e.lock_on_start_time = 0;
         }
