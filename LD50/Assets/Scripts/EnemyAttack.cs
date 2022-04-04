@@ -58,7 +58,8 @@ public class EnemyAttack : MonoBehaviour
         if (iCollider.GetComponent<WeaponRange>())
             return;
 
-        updateTarget(iCollider);
+        // NOTE toffa : this is costly
+        //updateTarget(iCollider);
     }
     void OnTriggerExit( Collider iCollider)
     {
