@@ -46,6 +46,17 @@ public class PlayerMissile : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider iCollider)
+    {
+        Enemy e = iCollider.GetComponent<Enemy>();
+        if (e!=null)
+        {
+            e.Die();
+            PW.notifyDeath(e);
+            explode();
+        }
+    }
+
     private void explode()
     {
         Instantiate( explosion, transform.position, Quaternion.identity);

@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_spawns: 1
   spawnables:
-  - {fileID: 5098499899253238544, guid: ad6c1ad7878e47f4e9c051e524784ec4, type: 3}
+  - {fileID: 6812243871734630949, guid: 9b80c53819d70e046a8d33d9be2f9585, type: 3}
 --- !u!1001 &8817507629262946647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_spawns: 1
   spawnables:
-  - {fileID: 5098499899253238544, guid: ad6c1ad7878e47f4e9c051e524784ec4, type: 3}
+  - {fileID: 6812243871734630949, guid: 9b80c53819d70e046a8d33d9be2f9585, type: 3}
 --- !u!1001 &8817507630063874719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,4 +301,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_spawns: 1
   spawnables:
-  - {fileID: 5098499899253238544, guid: ad6c1ad7878e47f4e9c051e524784ec4, type: 3}
+  - {fileID: 6812243871734630949, guid: 9b80c53819d70e046a8d33d9be2f9585, type: 3}

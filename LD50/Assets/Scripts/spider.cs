@@ -20,28 +20,30 @@ public class spider : Enemy
         BaseStart();
 
         animator = GetComponent<Animator>();
-        is_walking = false;
+        is_walking = true;
         is_atking = false;
+        animator.SetBool( walk_anim_param, is_walking);
     }
 
     // Update is called once per frame
     void Update()
     {
         BaseUpdate();
-
-        is_walking = (path.status == NavMeshPathStatus.PathComplete );
+        if (!is_walking)
+            is_walking = (path.status == NavMeshPathStatus.PathComplete );
     }
 
     void FixedUpdate()
     {
-        animator.SetBool( walk_anim_param, is_walking);
-        animator.SetBool( atk_anim_param, is_atking);
+        //animator.SetBool( atk_anim_param, is_atking);
     }
 
     public override void onDamageDealt()
     {
         base.onDamageDealt();
         is_atking = true;
+        if(!animator)
+            return;
         animator.SetBool( atk_anim_param, is_atking);
     }
 
@@ -49,6 +51,8 @@ public class spider : Enemy
     {
         base.outOfDamageRange();
         is_atking = false;
+        if(!animator)
+            return;
         animator.SetBool( atk_anim_param, is_atking);
     }
 }

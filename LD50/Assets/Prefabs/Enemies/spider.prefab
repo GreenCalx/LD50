@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 6747113511488119388}
   - component: {fileID: 6812243871734630949}
   - component: {fileID: 8956356711986947508}
+  - component: {fileID: 5507842097949799531}
   m_Layer: 0
   m_Name: spider
   m_TagString: Untagged
@@ -384,7 +385,7 @@ Transform:
   m_GameObject: {fileID: 2603769663237317313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.16623917, y: 0.20795155, z: -0.79176164}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children:
   - {fileID: 6041991530278381797}
   - {fileID: 453469447229897391}
@@ -445,8 +446,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 1.2
+  m_Acceleration: 1.8
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -456,7 +457,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!95 &6747113511488119388
 Animator:
   serializedVersion: 3
@@ -493,7 +494,14 @@ MonoBehaviour:
   is_locked_by_player: 0
   lock_on_start_time: 0
   lock_on_elapsed_time: 0
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: fafed725b37565444b8029fcd3b349ac, type: 3}
+  - {fileID: 8300000, guid: 7eceaa64ded27db44b699ef15964cb2c, type: 3}
+  - {fileID: 8300000, guid: 22861d6657dcf2a4f993840c3ed45991, type: 3}
+  - {fileID: 8300000, guid: 49ec8e8d35c0f2e40a6ff85880110bf9, type: 3}
+  - {fileID: 8300000, guid: 08b370268cda2ec429d4f867ca955a88, type: 3}
+  - {fileID: 8300000, guid: 3f1c6615935f5ca42aeecf360e138a7e, type: 3}
+  - {fileID: 8300000, guid: 47a92812cf3a41e449b946503d5d8b25, type: 3}
   time_between_sounds: 10
 --- !u!82 &8956356711986947508
 AudioSource:
@@ -591,6 +599,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &5507842097949799531
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603769663237317313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.43
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2687521352615646556
 GameObject:
   m_ObjectHideFlags: 0
