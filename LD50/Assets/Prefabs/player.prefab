@@ -432,7 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 0}
   missileRef: {fileID: 2674087720886225684, guid: 0365ac7076c5ae741a0088d9e26154d9, type: 3}
-  lock_duration: 1
+  lock_duration: 0.2
   locked_enemies: []
   in_range_enemies: []
   sound_fire: {fileID: 8300000, guid: 3aade82d0d1d5684b9553b07070ef50a, type: 3}
