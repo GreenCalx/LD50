@@ -98,7 +98,10 @@ public class PlayerWeapon : Subscriber
     {
         Enemy e = iGO.GetComponent<Enemy>();
         if (e == null)
-            return;
+        {
+            locked_enemies.RemoveAll( item => item == null);
+            in_range_enemies.RemoveAll( item => item == null);
+        }
 
         notifyDeath(e);
     }

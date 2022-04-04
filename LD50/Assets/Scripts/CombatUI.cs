@@ -88,6 +88,9 @@ public class CombatUI : Subscriber
 
         foreach( Enemy e in PW.in_range_enemies)
         {
+            if ( e == null )
+                continue;
+                
             if (dicoEnemyCursors.ContainsKey(e))
             {
                 updateCursorPosition(e, locking_color);

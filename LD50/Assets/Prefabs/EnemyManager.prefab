@@ -48,6 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subs:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   VM: {fileID: 0}
   spawn_interval: 2
   evacPoint: {fileID: 0}
@@ -132,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_spawns: 1
   spawnables:
-  - {fileID: 4405142248325047990, guid: 9b80c53819d70e046a8d33d9be2f9585, type: 3}
+  - {fileID: 5098499899253238544, guid: ad6c1ad7878e47f4e9c051e524784ec4, type: 3}
 --- !u!1001 &8817507629262946647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_spawns: 1
   spawnables:
-  - {fileID: 4405142248325047990, guid: 9b80c53819d70e046a8d33d9be2f9585, type: 3}
+  - {fileID: 5098499899253238544, guid: ad6c1ad7878e47f4e9c051e524784ec4, type: 3}
 --- !u!1001 &8817507630063874719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -296,4 +301,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_spawns: 1
   spawnables:
-  - {fileID: 4405142248325047990, guid: 9b80c53819d70e046a8d33d9be2f9585, type: 3}
+  - {fileID: 5098499899253238544, guid: ad6c1ad7878e47f4e9c051e524784ec4, type: 3}
