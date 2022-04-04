@@ -53,7 +53,7 @@ MonoBehaviour:
   gestion_cam: {fileID: 3645323530024242723}
   player: {fileID: 0}
   modules_group: {fileID: 0}
-  latch: 10
+  latch: 0.2
 --- !u!1001 &4045285489100703444
 PrefabInstance:
   m_ObjectHideFlags: 0

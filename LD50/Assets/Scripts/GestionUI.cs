@@ -12,8 +12,8 @@ public class GestionUI : MonoBehaviour
     private List<KeyValuePair<GameObject, Module>> module_cursors;
     private List<GameObject> icons;
     private int selection_id;
-    public int latch = 10;
-    private int frame_count = 0;
+    public float latch = 0.1f;
+    private float elapsed_time = 0;
     private bool has_inputed = false;
     public AudioClip sound_select;
     public AudioClip sound_nope;
@@ -67,12 +67,11 @@ public class GestionUI : MonoBehaviour
         }
         else
         {
-            if (frame_count < latch)
-                frame_count++;
-            else
+            elapsed_time += Time.unscaledDeltaTime;
+            if (elapsed_time > latch)
             {
                 has_inputed = false;
-                frame_count = 0;
+                elapsed_time = 0;
             }
         }
 

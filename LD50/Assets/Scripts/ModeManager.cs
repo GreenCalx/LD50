@@ -17,8 +17,8 @@ public class ModeManager : MonoBehaviour
     public GameObject player;
     public GameObject modules_group;
 
-    public int latch = 10;
-    private int n_frames = 0;
+    public float latch = 0.1f;
+    private float elapsed_time = 0;
     private bool has_changed_mode = false;
 
     // Start is called before the first frame update
@@ -62,12 +62,11 @@ public class ModeManager : MonoBehaviour
         }
         else
         {
-            if (n_frames < latch)
-                n_frames++;
-            else
+            elapsed_time += Time.unscaledDeltaTime;
+            if (elapsed_time > latch)
             {
                 has_changed_mode = false;
-                n_frames = 0;
+                elapsed_time = 0;
             }
         }
     }
