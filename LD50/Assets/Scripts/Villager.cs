@@ -9,6 +9,8 @@ public class Villager : Observed
 
     [HideInInspector]
     public bool evacuated = false;
+    [HideInInspector]
+    public bool is_dead = false;
     private NavMeshAgent navmesh;
     private const string walk_anim_param = "walk";
     private Animator animator;
@@ -40,6 +42,7 @@ public class Villager : Observed
         path = new NavMeshPath();
         idle_elapsed_time = 0f;
         evacuated = false;
+        is_dead = false;
         inited = true;
     }
 
@@ -83,7 +86,7 @@ public class Villager : Observed
 
     public void kill()
     {
-        quitVillage();
         Debug.Log("villager KILLED");
+        Destroy(gameObject);
     }
 }

@@ -45,6 +45,7 @@ public class House : Subscriber
         if (order == HOUSE_ORDER.EVACUATE)
         {
             List<Villager> toclean = new List<Villager>();
+            spawned_villagers.RemoveAll(item => item == null);
             foreach(GameObject go in spawned_villagers)
             {
                 Villager v = go.GetComponent<Villager>();
@@ -100,6 +101,7 @@ public class House : Subscriber
 
     public void applyOrderAll()
     {
+        spawned_villagers.RemoveAll(item => item == null);
         foreach ( GameObject go in spawned_villagers)
         {
             Villager v = go.GetComponent<Villager>();
@@ -117,6 +119,7 @@ public class House : Subscriber
     public void changeOrder( HOUSE_ORDER iNewOrder)
     {
         order = iNewOrder;
+        spawned_villagers.RemoveAll(item => item == null);
         foreach( GameObject go in spawned_villagers )
         {
             Villager v = go.GetComponent<Villager>();
