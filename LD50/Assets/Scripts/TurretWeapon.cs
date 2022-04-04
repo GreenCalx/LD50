@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TurretWeapon : MonoBehaviour
+public class TurretWeapon : Subscriber
 {
     public Image  cursor;
     public GameObject missileRef;
@@ -82,5 +82,12 @@ public class TurretWeapon : MonoBehaviour
             in_range_enemies.Remove(iE);
     }
 
-    
+    public override void notify(GameObject iGO)
+    {
+        Enemy e = iGO.GetComponent<Enemy>();
+        if (e == null)
+            return;
+
+        notifyDeath(e);
+    }
 }

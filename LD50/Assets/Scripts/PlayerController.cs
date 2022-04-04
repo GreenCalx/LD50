@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         ApplyGravity();
         DrawDebug();
 
-        if ((Mathf.Abs(input.x) < 1) && ( Mathf.Abs(input.y) < 1) )
+        if ((Mathf.Abs(input.x) < 0.1) && ( Mathf.Abs(input.y) < 0.1) )
             return; // no movement
         
         Rotate();
