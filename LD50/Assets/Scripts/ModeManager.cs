@@ -17,6 +17,10 @@ public class ModeManager : MonoBehaviour
     public GameObject player;
     public GameObject modules_group;
 
+    public int latch = 10;
+    private int n_frames = 0;
+    private bool has_changed_mode = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,26 +34,40 @@ public class ModeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (!has_changed_mode)
         {
-            switch (mode)
+            if (Input.GetAxisRaw("Fire2") > 0)
             {
-                case Mode.real_time:
-                    mode = Mode.gestion;
-                    main_cam.enabled = false;
-                    gestion_cam.enabled = true;
-                    gestionUI.enabled = true;
-                    //gestionUI.Select(0);
-                    Time.timeScale = 0;
-                    break;
+                switch (mode)
+                {
+                    case Mode.real_time:
+                        mode = Mode.gestion;
+                        main_cam.enabled = false;
+                        gestion_cam.enabled = true;
+                        gestionUI.enabled = true;
+                        //gestionUI.Select(0);
+                        Time.timeScale = 0;
+                        break;
 
-                case Mode.gestion:
-                    mode = Mode.real_time;
-                    main_cam.enabled = true;
-                    gestion_cam.enabled = false;
-                    gestionUI.enabled = false;
-                    Time.timeScale = 1;
-                    break;
+                    case Mode.gestion:
+                        mode = Mode.real_time;
+                        main_cam.enabled = true;
+                        gestion_cam.enabled = false;
+                        gestionUI.enabled = false;
+                        Time.timeScale = 1;
+                        break;
+                }
+                has_changed_mode = true;
+            }
+        }
+        else
+        {
+            if (n_frames < latch)
+                n_frames++;
+            else
+            {
+                has_changed_mode = false;
+                n_frames = 0;
             }
         }
     }

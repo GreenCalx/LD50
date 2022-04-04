@@ -617,10 +617,6 @@ PrefabInstance:
       propertyPath: modules_group
       value: 
       objectReference: {fileID: 738084455}
-    - target: {fileID: 3645323530024242723, guid: 548067677fe5dc942990580186e934ed, type: 3}
-      propertyPath: near clip plane
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 5326935126057486829, guid: 548067677fe5dc942990580186e934ed, type: 3}
       propertyPath: m_Name
       value: Manager

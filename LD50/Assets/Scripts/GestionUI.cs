@@ -11,8 +11,9 @@ public class GestionUI : MonoBehaviour
     public Color building;
     private List<KeyValuePair<GameObject, Module>> module_cursors;
     private int selection_id;
-    public int latch;
+    public int latch = 10;
     private int frame_count = 0;
+    private bool has_inputed = false;
     public AudioClip sound_select;
     public AudioClip sound_nope;
     public AudioClip sound_build_instruction;
@@ -43,7 +44,7 @@ public class GestionUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (frame_count > latch)
+        if (!has_inputed)
         {
             if (Input.GetAxisRaw("Horizontal") > 0)
                 Select(1);
@@ -51,9 +52,19 @@ public class GestionUI : MonoBehaviour
                 Select(-1);
             else if (Input.GetAxisRaw("Fire1") > 0)
                 Build();
-            frame_count = 0;
+
+            has_inputed = true;
         }
-        frame_count++;
+        else
+        {
+            if (frame_count < latch)
+                frame_count++;
+            else
+            {
+                has_inputed = false;
+                frame_count = 0;
+            }
+        }
 
         for (int id = 0; id < module_cursors.Count; id++)
         {
