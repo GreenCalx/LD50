@@ -15,12 +15,17 @@ public class Rocket : Module
     public AudioClip sound_take_off;
     public AudioClip sound_land;
 
+    public RocketReactor RR;
+
     // Start is called before the first frame update
     void Start()
     {
         BaseStart();
 
         base_position = transform.position;
+
+        if(!!RR)
+            RR.stop();
     }
 
     // Update is called once per frame
@@ -80,6 +85,9 @@ public class Rocket : Module
 
         sound_player.clip = sound_take_off;
         sound_player.Play();
+
+        if(!!RR)
+            RR.play();
     }
 
     public void Land()
@@ -88,6 +96,9 @@ public class Rocket : Module
         is_traveling = false;
         started_landing = false;
         transform.position = base_position;
+
+        if (!!RR)
+            RR.stop();
     }
 
     public bool Embark()
