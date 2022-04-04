@@ -74,13 +74,19 @@ public class PlayerWeapon : Subscriber
         }
         foreach(Enemy e in locked_enemies)
         {
+            Transform target = null;
+            if(e!=null)
+                target = e.transform;
+            else
+                continue;
+
             GameObject new_missile = Instantiate(missileRef, missile_spawn.gameObject.transform.position, Quaternion.identity);
             new_missile.transform.rotation = PC.transform.rotation;
             // set target on missile
             PlayerMissile pm = new_missile.GetComponentInChildren<PlayerMissile>();
             if (!!pm)
             {
-                pm.target = e.transform;
+                pm.target = target;
                 pm.PW = this;
             }
             else
