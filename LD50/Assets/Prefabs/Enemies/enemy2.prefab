@@ -190,8 +190,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 2
+  m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -261,7 +261,14 @@ MonoBehaviour:
   is_locked_by_player: 0
   lock_on_start_time: 0
   lock_on_elapsed_time: 0
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: fafed725b37565444b8029fcd3b349ac, type: 3}
+  - {fileID: 8300000, guid: 7eceaa64ded27db44b699ef15964cb2c, type: 3}
+  - {fileID: 8300000, guid: 22861d6657dcf2a4f993840c3ed45991, type: 3}
+  - {fileID: 8300000, guid: 49ec8e8d35c0f2e40a6ff85880110bf9, type: 3}
+  - {fileID: 8300000, guid: 08b370268cda2ec429d4f867ca955a88, type: 3}
+  - {fileID: 8300000, guid: 3f1c6615935f5ca42aeecf360e138a7e, type: 3}
+  - {fileID: 8300000, guid: 47a92812cf3a41e449b946503d5d8b25, type: 3}
   time_between_sounds: 10
 --- !u!82 &9089948166404717819
 AudioSource:
