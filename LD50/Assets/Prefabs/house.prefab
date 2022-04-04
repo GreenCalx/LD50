@@ -215,6 +215,10 @@ MonoBehaviour:
   idle_area: {fileID: 0}
   villagerRef: {fileID: 5107644665707485985, guid: 33f7ef5409be42244b7f1f18c52e75a4, type: 3}
   evacuationPoint: {fileID: 0}
+  explosion: {fileID: 6535121009771904810, guid: fc8c3ffcee768774c942301c2f38ddd8, type: 3}
+  warning: {fileID: 8947158444456742518, guid: d718bc5d7070e0f4f969f67492cd68fa, type: 3}
+  order: 0
+  spawned_villagers: []
 --- !u!64 &919132148769622689
 MeshCollider:
   m_ObjectHideFlags: 0
