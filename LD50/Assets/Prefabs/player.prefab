@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8365675918754640851}
   - component: {fileID: 1050839216}
   - component: {fileID: 1933125084}
+  - component: {fileID: 6453204058595735667}
   m_Layer: 0
   m_Name: robot
   m_TagString: Untagged
@@ -172,6 +173,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!95 &6453204058595735667
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774974500557628760}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 446a573c1dbc95d458a017c2c3a19ce7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2631541126232421473
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 2631541126232421473}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 64.7}
-  m_LocalScale: {x: 901.38055, y: 6337.5166, z: 901.38055}
+  m_LocalScale: {x: 1775.2, y: 6250, z: 2531}
   m_Children: []
   m_Father: {fileID: 7755644802484852352}
   m_RootOrder: 1
