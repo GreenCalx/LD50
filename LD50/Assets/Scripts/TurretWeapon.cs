@@ -17,6 +17,10 @@ public class TurretWeapon : Subscriber
     protected GunTip missile_spawn;
     protected Turret turret;
     private float last_shot_time = 0f;
+    
+    public AudioClip sound_fire;
+
+    private AudioSource sound_player;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,8 @@ public class TurretWeapon : Subscriber
         turret = GetComponentInParent<Turret>();
         in_range_enemies = new List<Enemy>();
         locked_enemies = new List<Enemy>();
+
+        sound_player = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -55,6 +61,9 @@ public class TurretWeapon : Subscriber
 
     public void Shoot()
     {
+        if (locked_enemies.Count > 0)
+            sound_player.clip = sound_fire;
+
         if (!missile_spawn)
         {
             Debug.LogError("Missing Missile Spawner reference.");

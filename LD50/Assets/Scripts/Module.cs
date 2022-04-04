@@ -11,9 +11,10 @@ public class Module : MonoBehaviour
     public float build_start_time;
     public Mesh[] models;
     private Help help;
+
     private AudioClip sound_start_build;
     private AudioClip sound_finish_build;
-    private AudioSource sound_player;
+    protected AudioSource sound_player;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +57,7 @@ public class Module : MonoBehaviour
         {
             build_start_time = Time.time;
             is_building = true;
-            help.target = transform;
+            help.TargetModule(GetComponentInChildren<HelpAnchor>().transform);
 
             sound_player.clip = sound_start_build;
             sound_player.Play();

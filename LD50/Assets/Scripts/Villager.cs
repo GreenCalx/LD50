@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,11 +23,19 @@ public class Villager : Observed
 
     private bool inited = false;
 
+    public AudioClip[] sounds;
+    private float last_sound_time = 0;
+    public float time_between_sounds = 60;
+    private AudioSource sound_player;
+
 
     // Start is called before the first frame update
     void Start()
     {
         init();
+
+        sound_player = GetComponent<AudioSource>();
+        makeSound();
     }
 
     public void init()
@@ -71,6 +79,19 @@ public class Villager : Observed
         
         animator.SetBool( walk_anim_param, walk);
         //rb.gameObject.transform.LookAt(target);
+
+        if ((sound_player != null) && (sounds.Length > 0) && (Time.time - last_sound_time > time_between_sounds))
+        {
+            makeSound();
+        }
+    }
+
+    protected void makeSound()
+    {
+        sound_player.clip = sounds[Random.Range(0, sounds.Length)];
+        sound_player.Play();
+
+        last_sound_time = Time.time;
     }
 
     public void updateTarget( Vector3 iTarget)

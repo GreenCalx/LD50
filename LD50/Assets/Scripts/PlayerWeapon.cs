@@ -17,6 +17,11 @@ public class PlayerWeapon : Subscriber
     protected GunTip missile_spawn;
     protected PlayerController PC;
 
+    public AudioClip sound_fire;
+    public AudioClip sound_fizzle;
+
+    private AudioSource sound_player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +29,15 @@ public class PlayerWeapon : Subscriber
         PC = GetComponentInParent<PlayerController>();
         in_range_enemies = new List<Enemy>();
         locked_enemies = new List<Enemy>();
+
+        sound_player = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.timeScale != 0f)
         {
             Shoot();
         }
@@ -53,6 +60,13 @@ public class PlayerWeapon : Subscriber
 
     public void Shoot()
     {
+        if (locked_enemies.Count > 0)
+            sound_player.clip = sound_fire;
+        else
+            sound_player.clip = sound_fizzle;
+
+        sound_player.Play();
+
         if (!missile_spawn)
         {
             Debug.LogError("Missing Missile Spawner reference.");

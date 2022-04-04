@@ -132,7 +132,7 @@ MonoBehaviour:
   basic: {r: 1, g: 0, b: 0, a: 1}
   selected: {r: 0.015300989, g: 1, b: 0, a: 1}
   building: {r: 0, g: 0, b: 1, a: 1}
-  latch: 8
+  latch: 7
   sound_select: {fileID: 8300000, guid: 95b692048b69a3847a52c408d7bd6dc7, type: 3}
   sound_nope: {fileID: 8300000, guid: cc4a42f2ece052c49ba6c34445d3868a, type: 3}
   sound_build_instruction: {fileID: 8300000, guid: 064866ecf74b5d24a88c19a1de083528, type: 3}
