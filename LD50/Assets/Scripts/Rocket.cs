@@ -7,7 +7,6 @@ public class Rocket : Module
     public int capacity = 0;
     public int n_villager = 0;
     public float last_take_off_time = 0f;
-    public int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +58,7 @@ public class Rocket : Module
 
     public void Land()
     {
-        score += n_villager;
+        GameOver.score += n_villager;
         n_villager = 0;
         is_traveling = false;
         GetComponent<MeshFilter>().mesh = models[level];

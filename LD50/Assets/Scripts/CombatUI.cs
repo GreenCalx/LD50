@@ -39,7 +39,8 @@ public class CombatUI : Subscriber
     // Update is called once per frame
     void Update()
     {
-        UIsizes = GetComponent<CanvasScaler>().referenceResolution;
+        //UIsizes = GetComponent<CanvasScaler>().referenceResolution;
+        UIsizes = new Vector2(Screen.width, Screen.height);
         refreshAimed();
         refreshLocked();
         refreshOutOfRangeEnemies();

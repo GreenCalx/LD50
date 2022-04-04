@@ -39,7 +39,7 @@ public class ModeManager : MonoBehaviour
                     main_cam.enabled = false;
                     gestion_cam.enabled = true;
                     gestionUI.enabled = true;
-                    gestionUI.Select(0);
+                    //gestionUI.Select(0);
                     Time.timeScale = 0;
                     break;
 

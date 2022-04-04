@@ -24,7 +24,8 @@ public class GestionUI : MonoBehaviour
         module_cursors = new List<KeyValuePair<GameObject, Module>>();
         Module[] modules = GetComponentInParent<ModeManager>().modules_group.GetComponentsInChildren<Module>();
         Camera cam = GetComponentInParent<ModeManager>().gestion_cam;
-        Vector2 UIsizes = GetComponent<CanvasScaler>().referenceResolution;
+        //Vector2 UIsizes = GetComponent<CanvasScaler>().referenceResolution;
+        Vector2 UIsizes = new Vector2(Screen.width, Screen.height);
         foreach (Module module in modules)
         {
             Vector3 position = cam.WorldToScreenPoint(module.transform.position);
@@ -68,12 +69,15 @@ public class GestionUI : MonoBehaviour
 
     public void Select(int direction)
     {
-        selection_id = Math.Modulo((selection_id + direction), module_cursors.Count);
-
-        if (direction != 0)
+        if (module_cursors.Count > 0)
         {
-            sound_player.clip = sound_select;
-            sound_player.Play();
+            selection_id = Math.Modulo((selection_id + direction), module_cursors.Count);
+
+            if (direction != 0)
+            {
+                sound_player.clip = sound_select;
+                sound_player.Play();
+            }
         }
     }
 

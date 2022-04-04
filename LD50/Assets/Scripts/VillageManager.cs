@@ -6,6 +6,7 @@ public class VillageManager : Observer
 {
     public GameObject rocketRef;
     public GameObject evacPoint;
+    public GameOver gameOver;
     private Rocket rocket;
     private Evacuation evac;
 
@@ -44,6 +45,9 @@ public class VillageManager : Observer
                 evacuate(false);
             evac.evacuate = false;
         }
+
+        if (houses.Count == 0)
+            gameOver.Trigger();
     }
 
     public House getRandomHouse()
