@@ -27,8 +27,6 @@ public class TurretWeaponRange : MonoBehaviour
             if (!turret_weapon.in_range_enemies.Contains(e))
             { 
                 turret_weapon.in_range_enemies.Add(e); 
-                e.is_locked_by_player  = true;
-                e.lock_on_start_time = Time.time;
             }
         }
     }
@@ -38,16 +36,9 @@ public class TurretWeaponRange : MonoBehaviour
         Enemy e = iCollider.GetComponent<Enemy>();
         if ( (e!=null) && !e.is_locked_by_player)
         {
-            if (turret_weapon.in_range_enemies.Contains(e))
+            if (!turret_weapon.in_range_enemies.Contains(e))
             { 
-                e.is_locked_by_player  = true; 
-                e.lock_on_start_time = Time.time; 
-            } 
-            else
-            {  
                 turret_weapon.in_range_enemies.Add(e); 
-                e.is_locked_by_player  = true;
-                e.lock_on_start_time = Time.time; 
             }        
         }
     }
@@ -58,8 +49,6 @@ public class TurretWeaponRange : MonoBehaviour
         if ( e != null)
         {
             turret_weapon.in_range_enemies.Remove(e); // if it was just in lock range
-            e.is_locked_by_player = false;
-            e.lock_on_start_time = 0;
         }
     }
 }
