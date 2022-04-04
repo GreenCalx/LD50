@@ -30,6 +30,16 @@ public class Enemy :  Observed
 
     }
 
+    public virtual void onDamageDealt()
+    {
+
+    }
+
+    public virtual void outOfDamageRange()
+    {
+        
+    }
+
     public void init()
     {
         is_dead = false;
@@ -69,8 +79,6 @@ public class Enemy :  Observed
         else
         { 
             GetComponentInParent<EnemyManager>().reassign(this);
-            //Debug.LogWarning("Forced death cause no more reset target on enemy."); 
-            //Die(); 
         }
     }
 

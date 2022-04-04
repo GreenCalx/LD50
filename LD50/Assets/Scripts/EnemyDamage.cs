@@ -22,6 +22,10 @@ public class EnemyDamage : MonoBehaviour
     {
         if ((Time.time - last_damage_time) < gcd)
             return;
+        
+        Enemy e = GetComponent<Enemy>();
+        if (!!e)
+            e.onDamageDealt();
 
         Villager v = iGO.GetComponent<Villager>();
         PlayerController pc = iGO.GetComponent<PlayerController>();
@@ -57,5 +61,16 @@ public class EnemyDamage : MonoBehaviour
             return;
 
         doDamage(c.gameObject);
+    }
+
+    void OnCollisionExit( Collision iCollision )
+    {
+        Collider c = iCollision.collider;
+        if (c.GetComponent<WeaponRange>())
+            return;
+
+        Enemy e = GetComponent<Enemy>();
+        if (!!e)
+            e.outOfDamageRange();
     }
 }
