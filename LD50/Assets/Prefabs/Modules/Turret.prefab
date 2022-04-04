@@ -103,7 +103,6 @@ MonoBehaviour:
   missileRef: {fileID: 2674087720886225684, guid: 819e75c0696d630419ef6679eeda8c40, type: 3}
   lock_duration: 0.1
   shoot_time: 1
-  locked_enemies: []
   in_range_enemies: []
   sound_fire: {fileID: 8300000, guid: 3aade82d0d1d5684b9553b07070ef50a, type: 3}
 --- !u!64 &2634551515699098672
@@ -231,7 +230,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4460910078812418721
 Transform:
