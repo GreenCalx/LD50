@@ -42,11 +42,13 @@ public class spider : Enemy
     {
         base.onDamageDealt();
         is_atking = true;
+        animator.SetBool( atk_anim_param, is_atking);
     }
 
     public override void outOfDamageRange()
     {
         base.outOfDamageRange();
         is_atking = false;
+        animator.SetBool( atk_anim_param, is_atking);
     }
 }
