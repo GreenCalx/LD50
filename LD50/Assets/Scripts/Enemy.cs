@@ -9,25 +9,35 @@ public class Enemy :  Observed
     public bool is_locked_by_player;
     public double lock_on_start_time;
     public double lock_on_elapsed_time;
+    public AudioClip[] sounds;
+    public float time_between_sounds = 10;
 
     protected NavMeshAgent navmesh;
     protected NavMeshPath path;
     protected bool inited = false;
     protected Transform baseTarget;
     private bool is_dead = false;
+    private float last_sound_time = 0;
+    private AudioSource sound_player;
 
 
     // Start is called before the first frame update
-    void Start()
+    protected void BaseStart()
     {
         inited = false;
         init();
+
+        sound_player = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void BaseUpdate()
     {
-
+        if (Time.time - last_sound_time > time_between_sounds)
+        {
+            sound_player.clip = sounds[Random.Range(0, sounds.Length)];
+            sound_player.Play();
+        }
     }
 
     public void init()
