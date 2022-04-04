@@ -586,6 +586,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 3444915179750059739, guid: aedbcf21c89521a41a3dfdda7db13cc9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1775.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444915179750059739, guid: aedbcf21c89521a41a3dfdda7db13cc9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444915179750059739, guid: aedbcf21c89521a41a3dfdda7db13cc9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2531
+      objectReference: {fileID: 0}
     - target: {fileID: 8365675918754640851, guid: aedbcf21c89521a41a3dfdda7db13cc9, type: 3}
       propertyPath: cam
       value: 
@@ -739,14 +751,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4752606964209655481, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.324
-      objectReference: {fileID: 0}
-    - target: {fileID: 4752606964209655481, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.136
-      objectReference: {fileID: 0}
     - target: {fileID: 8817507628246519434, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
       propertyPath: VM
       value: 
@@ -755,6 +759,10 @@ PrefabInstance:
       propertyPath: evacPoint
       value: 
       objectReference: {fileID: 1768018425}
+    - target: {fileID: 8817507628246519434, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
+      propertyPath: spawn_interval
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8817507628246519434, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
       propertyPath: subs.Array.data[0]
       value: 
