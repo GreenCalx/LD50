@@ -60,7 +60,7 @@ public class Rocket : Module
         }
     }
 
-    new public bool Start_build()
+    public override bool Start_build()
     {
         if (!is_traveling)
             return BaseStart_build();

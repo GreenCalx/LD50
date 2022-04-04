@@ -47,13 +47,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  level_max: 1
+  level_max: 2
   building_time: 10
   is_building: 0
   build_start_time: 0
   models:
   - {fileID: 0}
   - {fileID: -1721106302929804235, guid: 422d94087d0fb73438425dcfe9c95252, type: 3}
+  - {fileID: -446744036491343323, guid: 422d94087d0fb73438425dcfe9c95252, type: 3}
   is_traveling: 0
   started_landing: 0
   travel_time: 20

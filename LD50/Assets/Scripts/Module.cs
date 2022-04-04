@@ -46,7 +46,7 @@ public class Module : MonoBehaviour
         }
     }
 
-    public bool Start_build()
+    public virtual bool Start_build()
     {
         return BaseStart_build();
     }
