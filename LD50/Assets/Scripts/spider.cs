@@ -15,8 +15,10 @@ public class spider : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        inited = false;
-        init();
+        //inited = false;
+        //init();
+        BaseStart();
+
         animator = GetComponent<Animator>();
         is_walking = false;
         is_atking = false;
@@ -25,6 +27,8 @@ public class spider : Enemy
     // Update is called once per frame
     void Update()
     {
+        BaseUpdate();
+
         is_walking = (path.status == NavMeshPathStatus.PathComplete );
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5331381314374196624}
   - component: {fileID: 5360849740567353812}
   - component: {fileID: 7561557363864357131}
-  - component: {fileID: 2870565117343751962}
+  - component: {fileID: 843606824019264200}
   m_Layer: 0
   m_Name: H.E.L.P
   m_TagString: Untagged
@@ -99,8 +99,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2870565117343751962
-MeshCollider:
+--- !u!135 &843606824019264200
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,7 +109,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -591608442223425049, guid: 615214f5289809e45b866fb419be111e, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.48504645
+  m_Center: {x: 0.018952027, y: 0.044512272, z: -0.16212542}

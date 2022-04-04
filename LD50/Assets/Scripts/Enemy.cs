@@ -33,10 +33,12 @@ public class Enemy :  Observed
     // Update is called once per frame
     protected void BaseUpdate()
     {
-        if (Time.time - last_sound_time > time_between_sounds)
+        if ((sound_player != null) && (sounds.Length > 0) && (Time.time - last_sound_time > time_between_sounds))
         {
             sound_player.clip = sounds[Random.Range(0, sounds.Length)];
             sound_player.Play();
+
+            last_sound_time = Time.time;
         }
     }
 
