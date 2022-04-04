@@ -40,6 +40,7 @@ public class VillageManager : Observer
             if (!evac.evacuate)
                 evacuate(true);
             evac.evacuate = true;
+            
         } else {
             if (evac.evacuate)
                 evacuate(false);

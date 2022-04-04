@@ -18,10 +18,10 @@ public class House : Subscriber
     public GameObject villagerRef;
     [HideInInspector]
     public GameObject evacuationPoint;
-    [HideInInspector]
-    private HOUSE_ORDER order;
 
-    private List<GameObject> spawned_villagers;
+    public HOUSE_ORDER order;
+
+    public List<GameObject> spawned_villagers;
     private float time_last_spawn;
 
     // Start is called before the first frame update
@@ -42,24 +42,24 @@ public class House : Subscriber
             }
         }
 
-        if (order == HOUSE_ORDER.EVACUATE)
-        {
-            List<Villager> toclean = new List<Villager>();
-            spawned_villagers.RemoveAll(item => item == null);
-            foreach(GameObject go in spawned_villagers)
-            {
-                Villager v = go.GetComponent<Villager>();
-                if ( !!v && v.evacuated)
-                {
-                    toclean.Add(v);
-                }
-            }
-            foreach(Villager v in toclean)
-            {
-                spawned_villagers.Remove(v.gameObject);
-                Destroy(v.gameObject);
-            }
-        }
+        // if (order == HOUSE_ORDER.EVACUATE)
+        // {
+        //     List<Villager> toclean = new List<Villager>();
+        //     spawned_villagers.RemoveAll(item => item == null);
+        //     foreach(GameObject go in spawned_villagers)
+        //     {
+        //         Villager v = go.GetComponent<Villager>();
+        //         if ( !!v && v.evacuated)
+        //         {
+        //             toclean.Add(v);
+        //         }
+        //     }
+        //     foreach(Villager v in toclean)
+        //     {
+        //         spawned_villagers.Remove(v.gameObject);
+        //         Destroy(v.gameObject);
+        //     }
+        // }
     }
 
     public void spawn()
@@ -71,8 +71,9 @@ public class House : Subscriber
 
         Villager v = villager.GetComponent<Villager>();
         v.obs = GetComponentInParent<VillageManager>();
+        v.home = this;
         v.init();
-        v.updateTarget( getNewIDLELocation(v) );
+        applyOrder(v);
     }
 
     public Vector3 getNewIDLELocation( Villager v)
@@ -101,17 +102,14 @@ public class House : Subscriber
 
     public void applyOrderAll()
     {
-        spawned_villagers.RemoveAll(item => item == null);
+        //
         foreach ( GameObject go in spawned_villagers)
         {
             Villager v = go.GetComponent<Villager>();
             if (v==null)
                 continue;
                 
-            if ( order == HOUSE_ORDER.EVACUATE)        
-                v.updateTarget( evacuationPoint.transform.position );
-            else
-                v.updateTarget( getNewIDLELocation(v) );
+            applyOrder(v);
         }
 
     }
@@ -145,6 +143,8 @@ public class House : Subscriber
 
     public void kill()
     {
+        spawned_villagers.RemoveAll(item => item == null);
+
         // send villagers to evacuation
         order = HOUSE_ORDER.EVACUATE;
         applyOrderAll();

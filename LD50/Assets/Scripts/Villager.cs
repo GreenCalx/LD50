@@ -27,6 +27,7 @@ public class Villager : Observed
     private float last_sound_time = 0;
     public float time_between_sounds = 60;
     private AudioSource sound_player;
+    public House home;
 
 
     // Start is called before the first frame update
@@ -103,11 +104,13 @@ public class Villager : Observed
     public void quitVillage()
     {
         evacuated = true;
+        kill();
     }
 
     public void kill()
     {
         Debug.Log("villager KILLED");
+        home.spawned_villagers.Remove(gameObject);
         Destroy(gameObject);
     }
 }
