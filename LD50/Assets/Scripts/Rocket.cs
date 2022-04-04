@@ -84,7 +84,6 @@ public class Rocket : Module
 
     public void Land()
     {
-        GameOver.score += n_villager;
         n_villager = 0;
         is_traveling = false;
         started_landing = false;
@@ -95,6 +94,7 @@ public class Rocket : Module
     {
         if (!is_traveling && !is_building && n_villager < capacity)
         {
+            GameOver.score++;
             n_villager++;
             return true;
         }
