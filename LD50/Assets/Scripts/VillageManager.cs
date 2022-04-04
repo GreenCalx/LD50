@@ -49,6 +49,8 @@ public class VillageManager : Observer
     public House getRandomHouse()
     {
         refreshHouses();
+        if (houses.Count==0)
+            return null;
         int i = Random.Range( 0, houses.Count);
         return houses[i];
     }

@@ -8,6 +8,7 @@ public class EnemyManager : Observer
     private List<EnemySpawner> spawners;
     public float spawn_interval = 5f;
     private float last_spawn_time;
+    public Transform evacPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,24 @@ public class EnemyManager : Observer
     {
         last_spawn_time = Time.time;
         int spawn_index = Random.Range(0, spawners.Count-1);
-        spawners[spawn_index].spawn( VM.getRandomHouse().transform );
+        House h = VM.getRandomHouse();
+        if (h==null)
+        { // no more houses, go for last villagers at evacpoint
+            spawners[spawn_index].spawn( evacPoint );
+            return;
+        }
+        spawners[spawn_index].spawn( h.transform );
+    }
+
+    public void reassign( Enemy e )
+    {
+        House h = VM.getRandomHouse();
+        if (h==null)
+        { // no more houses, go for last villagers at evacpoint
+            e.setBaseTarget( evacPoint );
+            return;
+        }
+        e.setBaseTarget( h.transform ); 
     }
 
     public virtual void notifed(GameObject iGO)

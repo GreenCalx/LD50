@@ -83,6 +83,7 @@ public class Villager : Observed
 
     public void kill()
     {
-        
+        quitVillage();
+        Debug.Log("villager KILLED");
     }
 }

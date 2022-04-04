@@ -41,13 +41,21 @@ public class EnemyDamage : MonoBehaviour
         last_damage_time = Time.time;
     }
 
-    void OnTriggerEnter( Collider iCollider)
+    void OnCollisionEnter( Collision iCollision)
     {
-        doDamage(iCollider.gameObject);
+        Collider c = iCollision.collider;
+        if (c.GetComponent<WeaponRange>())
+            return;
+
+        doDamage(c.gameObject);
     }
 
-    void OnTriggerStay( Collider iCollider)
+    void OnCollisionStay( Collision iCollision )
     {
-        doDamage(iCollider.gameObject);
+        Collider c = iCollision.collider;
+        if (c.GetComponent<WeaponRange>())
+            return;
+
+        doDamage(c.gameObject);
     }
 }

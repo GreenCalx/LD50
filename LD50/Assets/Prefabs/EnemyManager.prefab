@@ -48,6 +48,7 @@ MonoBehaviour:
   - {fileID: 0}
   VM: {fileID: 0}
   spawn_interval: 5
+  evacPoint: {fileID: 0}
 --- !u!1001 &8313408649130581811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,15 +62,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3651169995944427914, guid: f24f40f8c5eceb14cafe7773a1eecc81, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.64
+      value: -0.144
       objectReference: {fileID: 0}
     - target: {fileID: 3651169995944427914, guid: f24f40f8c5eceb14cafe7773a1eecc81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.127
+      value: -0.194
       objectReference: {fileID: 0}
     - target: {fileID: 3651169995944427914, guid: f24f40f8c5eceb14cafe7773a1eecc81, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.971
+      value: 3.468
       objectReference: {fileID: 0}
     - target: {fileID: 3651169995944427914, guid: f24f40f8c5eceb14cafe7773a1eecc81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -127,6 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc7808c9d35c8c45a9529eb38a9bf3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  n_spawns: 10
+  n_spawns: 1
   spawnables:
   - {fileID: 5098499899253238544, guid: ad6c1ad7878e47f4e9c051e524784ec4, type: 3}
