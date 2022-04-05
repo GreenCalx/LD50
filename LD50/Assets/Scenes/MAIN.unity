@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
+  m_FogColor: {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.15
+  m_FogDensity: 0.1
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
+  m_SubtractiveShadowColor: {r: 0.05490196, g: 0.05490196, b: 0.05490196, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 9dc2f5de761635144b2cb9a3e1bc92fb, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 0.28
@@ -760,7 +760,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1611020276251561251, guid: 4744d8c988f67934b9e1fac29c9868c8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5b8d9643be0ec7149a53e8101c171b78, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1610,7 +1610,7 @@ PrefabInstance:
       objectReference: {fileID: 301071676}
     - target: {fileID: 8817507628246519434, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
       propertyPath: spawn_interval_decrease_rate
-      value: 0.025
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8817507628246519435, guid: f4b551c298efcf74399606ace75bc51a, type: 3}
       propertyPath: m_Name
