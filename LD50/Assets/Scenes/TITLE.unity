@@ -372,6 +372,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 404521980571991319, guid: 346239888582ae74eba221d858c877cd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1027
+      objectReference: {fileID: 0}
+    - target: {fileID: 404521980571991319, guid: 346239888582ae74eba221d858c877cd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 720
+      objectReference: {fileID: 0}
     - target: {fileID: 8271174192768613640, guid: 346239888582ae74eba221d858c877cd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -460,5 +468,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8813688677593167231, guid: 346239888582ae74eba221d858c877cd, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: a62a8298e6faa274e9240118b6d6b569, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 346239888582ae74eba221d858c877cd, type: 3}
